@@ -1,0 +1,1747 @@
+﻿LIB GXW3CallLib b315bad7-5f04-4d1b-9689-ea2f41bc5bf4 v1.0 : 
+
+TKIND_COCLASS CompReg db4da351-a241-46cb-b41b-4557c3d1b463 funcs=0 vars=0
+
+TKIND_DISPATCH IComponentRegistrar a817e7a2-43fa-11d0-9e44-00aa00b6770a funcs=13 vars=0
+  FUNC void QueryInterface([in] GUID* riid, [out] void** ppvObj)
+  FUNC ulong AddRef()
+  FUNC ulong Release()
+  FUNC void GetTypeInfoCount([out] uint* pctinfo)
+  FUNC void GetTypeInfo([in] uint itinfo, [in] ulong lcid, [out] void** pptinfo)
+  FUNC void GetIDsOfNames([in] GUID* riid, [in] char** rgszNames, [in] uint cNames, [in] ulong lcid, [out] long* rgdispid)
+  FUNC void Invoke([in] long dispidMember, [in] GUID* riid, [in] ulong lcid, [in] ushort wFlags, [in] DISPPARAMS* pdispparams, [out] VARIANT* pvarResult, [out] EXCEPINFO* pexcepinfo, [out] uint* puArgErr)
+  FUNC void Attach([in] BSTR bstrPath)
+  FUNC void RegisterAll()
+  FUNC void UnregisterAll()
+  FUNC void GetComponents([out] SAFEARRAY(BSTR)* pbstrCLSIDs, [out] SAFEARRAY(BSTR)* pbstrDescriptions)
+  FUNC void RegisterComponent([in] BSTR bstrCLSID)
+  FUNC void UnregisterComponent([in] BSTR bstrCLSID)
+
+TKIND_DISPATCH _IGXW3CallProjectEvents 0ac7ae46-9849-4c91-9d02-3a441cd8e7d6 funcs=0 vars=0
+
+TKIND_COCLASS GXW3CallProject b8fb0f14-3102-4c45-bc50-ddd931402475 funcs=0 vars=0
+
+TKIND_DISPATCH IGXW3CallProject e08d3c60-12e5-4f3c-9a79-315cfbfe3389 funcs=96 vars=0
+  FUNC void QueryInterface([in] GUID* riid, [out] void** ppvObj)
+  FUNC ulong AddRef()
+  FUNC ulong Release()
+  FUNC void GetTypeInfoCount([out] uint* pctinfo)
+  FUNC void GetTypeInfo([in] uint itinfo, [in] ulong lcid, [out] void** pptinfo)
+  FUNC void GetIDsOfNames([in] GUID* riid, [in] char** rgszNames, [in] uint cNames, [in] ulong lcid, [out] long* rgdispid)
+  FUNC void Invoke([in] long dispidMember, [in] GUID* riid, [in] ulong lcid, [in] ushort wFlags, [in] DISPPARAMS* pdispparams, [out] VARIANT* pvarResult, [out] EXCEPINFO* pexcepinfo, [out] uint* puArgErr)
+  FUNC void Initialize([in] IUnknown* lpCommandSender)
+  FUNC void GetPlcTypeString([in] byte[32] lpbCallID, [out] BSTR* lpszPlcTypeString, [out] long* lplReturnCode)
+  FUNC void CreateNewProject([in] BSTR bstrProjectPath, [in] BSTR bstrTitle, [in] long lSaveType, [in] ulong dwPlcSeries, [in] ulong dwPlcType, [in] ulong dwLanguageType, [in] ushort wTimeOut, [in] long lUserInterfaceMode, [out] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void OpenProject([in] BSTR bstrProjectPath, [in] ushort wTimeOut, [in] long lUserInterfaceMode, [out] byte[32] lpbCallID, [inout] long* pbIsReadOnly, [out] long* lplReturnCode)
+  FUNC void CloseProject([in] byte[32] lpbCallID, [in] long lOption, [out] long* lplReturnCode)
+  FUNC void AttachProject([in] BSTR bstrProjectPath, [out] byte[32] lpbCallID, [out] long* pbIsReadOnly, [out] long* lplReturnCode)
+  FUNC void SaveProject([in] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void SaveAsProject([in] byte[32] lpbCallID, [in] BSTR bstrNewProjectPath, [in] BSTR bstrNewTitle, [in] long lSaveType, [in] long lInheritanceRights, [out] long* lplReturnCode)
+  FUNC void DeleteProject([in] byte[32] lpbCallID, [in] BSTR bstrProjectPath, [in] long bDeleteWorkspaceIfEmpty, [in] ushort wTimeOut, [out] long* lplReturnCode)
+  FUNC void RenameProject([in] BSTR bstrProjectPath, [in] BSTR bstrNewProjectName, [in] ushort wTimeOut, [out] long* lplReturnCode)
+  FUNC void IsProjectOpened([in] BSTR bstrProjectPath, [out] long* lplOpenCount, [out] long* lplReturnCode)
+  FUNC void GetProjectStatus([in] byte[32] lpbCallID, [in] BSTR bstrProjectPath, [in] ushort wTimeOut, [out] ulong* lpdwStatus, [out] long* lplReturnCode)
+  FUNC void SetProjectStatus([in] byte[32] lpbCallID, [in] ulong dwStatus, [out] long* lplReturnCode)
+  FUNC void GetPlcType([in] byte[32] lpbCallID, [in] ulong* lpdwPlcType, [in] ulong* lpdwPlcSeries, [out] long* lplReturnCode)
+  FUNC void GetDefaultConnection([in] byte[32] lpbCallID, [out] _ST_CONNECTION_INFO* lpstConnectionInfo, [out] BSTR* lpbstrConnectionName, [out] long* lplReturnCode)
+  FUNC void SetDefaultConnection([in] byte[32] lpbCallID, [in] _ST_CONNECTION_INFO stConnectionInfo, [out] long* lplReturnCode)
+  FUNC void InitializeEX([in] IUnknown* lpCommandSender, [in] BSTR bstrCultureName)
+  FUNC void ExportProjectXml([in] byte[32] lpbCallID, [in] BSTR bstrExportFilePath, [in] long bFormat, [out] long* lplExportErrors, [out] long* lplReturnCode)
+  FUNC void ExportObjectXml([in] byte[32] lpbCallID, [in] BSTR bstrExportFilePath, [in] long bFormat, [in] BSTR bstrObjectName, [in] long lObjectType, [out] long* lplExportErrors, [out] long* lplReturnCode)
+  FUNC void ImportProjectXml([in] byte[32] lpbCallID, [in] BSTR bstrImportFilePath, [in] long lImportFlags, [in] long lImportMode, [in] BSTR bstrReservedForFutureUse, [out] long* lplImportErrors, [out] long* lplReturnCode)
+  FUNC void DeleteProjectViewObject([in] byte[32] lpbCallID, [in] BSTR bstrObjectName, [in] long lObjectType, [out] long* lplReturnCode)
+  FUNC void CalcDataCRC([in] byte[32] lpbCallID, [in] void* lpvData, [in] long lDataSize, [in] long bFileFooter, [in] long lCRCType, [in] long bMirror, [out] uint64* lpullCRC, [out] long* lplReturnCode)
+  FUNC void ExportProjectXmlExt([in] byte[32] lpbCallID, [in] BSTR bstrExportFilePath, [in] long bFormat, [in] long lExportMode, [out] long* lplExportErrors, [out] long* lplReturnCode)
+  FUNC void ExportObjectXmlExt([in] byte[32] lpbCallID, [in] BSTR bstrExportFilePath, [in] long bFormat, [in] BSTR bstrObjectName, [in] long lObjectType, [in] long lExportMode, [out] long* lplExportErrors, [out] long* lplReturnCode)
+  FUNC void CreateNewProjectWithPassword([in] BSTR bstrProjectPath, [in] BSTR bstrTitle, [in] long lSaveType, [in] ulong dwPlcSeries, [in] ulong dwPlcType, [in] ulong dwLanguageType, [in] ushort wTimeOut, [in] long lUserInterfaceMode, [in] BSTR bstrUserName, [in] BSTR bstrPassword, [out] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void OpenProjectWithPassword([in] BSTR bstrProjectPath, [in] ushort wTimeOut, [in] long lUserInterfaceMode, [in] BSTR bstrUserName, [in] BSTR bstrPassword, [out] byte[32] lpbCallID, [inout] long* pbIsReadOnly, [out] long* lplReturnCode)
+  FUNC void ChangePlcType([in] byte[32] lpbCallID, [in] ulong dwPlcSeries, [in] ulong dwPlcType, [in] BSTR bstrUserName, [in] BSTR bstrPassword, [in] BSTR bstrNewProjectPath, [in] long bOverwrite, [out] long* lplReturnCode)
+  FUNC void GetEZSocketOpenParam([in] byte[32] lpbCallID, [out] _ST_ECMOPEN_W* lpstComOpen, [out] long* lplReturnCode)
+  FUNC void SaveFileStartupData([in] byte[32] lpbCallID, [in] BSTR bstrProjectPath, [in] ushort wSaveFlag, [out] long* lplReturnCode)
+  FUNC void LoadFileStartupData([in] byte[32] lpbCallID, [in] BSTR bstrProjectPath, [in] ushort wLoadFlag, [out] long* lplReturnCode)
+  FUNC void IsProjectModified([in] byte[32] lpbCallID, [out] long* lpbIsModified, [out] long* lplReturnCode)
+  FUNC void IsProjectCompiled([in] byte[32] lpbCallID, [out] long* lpbIsCompiled, [out] long* lplReturnCode)
+  FUNC void RenameObject([in] byte[32] lpbCallID, [in] BSTR bstrObjectName, [in] long lObjectType, [in] BSTR bstrNewObjectName, [out] long* lplReturnCode)
+  FUNC void BuildProject([in] byte[32] lpbCallID, [out] ulong* lpdwError, [out] ulong* lpdwWarning, [out] ulong* lpdwCheckWarning, [out] long* lplReturnCode)
+  FUNC void RebuildProject([in] byte[32] lpbCallID, [in] long lLabelAssignmentType, [in] long bCheckProgram, [out] ulong* lpdwError, [out] ulong* lpdwWarning, [out] ulong* lpdwCheckWarning, [out] long* lplReturnCode)
+  FUNC void GetSystemHardwareConfiguration([in] byte[32] lpbCallID, [out] _stSystemConfigInfo* lpSystem, [out] long* lplReturnCode)
+  FUNC void CreateNewProjectWithPasswordExt([in] BSTR bstrProjectPath, [in] BSTR bstrTitle, [in] long lSaveType, [in] ulong dwPlcSeries, [in] ulong dwPlcType, [in] ulong dwLanguageType, [in] ushort wTimeOut, [in] long lUserInterfaceMode, [in] BSTR bstrUserName, [in] BSTR bstrPassword, [in] ulong dwOperationMode, [out] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void GetOperationMode([in] byte[32] lpbCallID, [in] BSTR bstrProjectPath, [in] ushort wTimeOut, [out] ulong* lpdwOperationMode, [out] long* lplReturnCode)
+  FUNC void GetConnectionList([in] byte[32] lpbCallID, [out] ulong* lpdwSize, [out] _ST_CONNECTION_INFO_ALL** lpstConnectionList, [out] long* lplReturnCode)
+  FUNC void CreateNewProjectForChangePcType([in] ulong dwPlcSeries, [in] ulong dwPlcType, [in] ushort wTimeOut, [in] long lUserInterfaceMode, [out] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void PastePrivateData([in] byte[32] lpbCallID, [in] ulong dwSize, [in] byte* lpucData, [in] BSTR bstrProgDataMapFileName, [out] long* lplReturnCode)
+  FUNC void ImportPrivateData([in] byte[32] lpbCallID, [in] ulong dwSize, [in] byte* lpucData, [in] BSTR bstrProgDataMapFileName, [out] long* lplReturnCode)
+  FUNC void GetTempraryFolder([in] byte[32] lpbCallID, [out] BSTR* lpszTemporaryFolder, [out] long* lplReturnCode)
+  FUNC void ChangeDeviceForChangePcType([in] byte[32] lpbCallID, [in] ulong dwConvPattern, [in] BSTR bstrProgDataMapFileName, [out] long* lplReturnCode)
+  FUNC void CloseProjectForChangePcType([in] byte[32] lpbCallID, [in] long lOption, [out] long* lplReturnCode)
+  FUNC void ChangePlcTypeExt([in] byte[32] lpbCallID, [in] ulong dwPlcSeries, [in] ulong dwPlcType, [in] ulong dwOperationMode, [in] BSTR bstrUserName, [in] BSTR bstrPassword, [in] BSTR bstrNewProjectPath, [in] long bOverwrite, [out] long* lplReturnCode)
+  FUNC void GetSystemHardwareConfigurationFXV([in] byte[32] lpbCallID, [out] _stSystemConfigInfoFXV* lpSystem, [out] long* lplReturnCode)
+  FUNC void ImportPlcFormatData([in] byte[32] lpbCallID, [in] ulong dwPlcFileDataSize, [in] _ST_PLC_FILE_DATA* lpstPlcFileDataList, [in] BSTR bstrTargetFolder, [out] long* lplReturnCode)
+  FUNC void ExportPlcFormatData([in] byte[32] lpbCallID, [in] ulong dwPlcFileDataSize, [in] _ST_PLC_FILE_DATA* lpstPlcFileDataList, [in] BSTR bstrTargetFolder, [out] long* lplReturnCode)
+  FUNC void ExportProgramViewHtml([in] byte[32] lpbCallID, [in] BSTR bstrProgramName, [in] BSTR bstrExportFilePath, [out] long* lplReturnCode)
+  FUNC void GetEZSocketOpenParamExt([in] byte[32] lpbCallID, [in] BSTR bstrProjectPath, [in] ushort wTimeOut, [out] _ST_ECMOPEN_W* lpstComOpen, [out] long* lplReturnCode)
+  FUNC void GetGlobalLabelListNames([in] byte[32] lpbCallID, [out] ulong* lpdwSize, [out] _ST_OBJNAME** lppstNames, [out] long* lplReturnCode)
+  FUNC void GetSDTNames([in] byte[32] lpbCallID, [out] ulong* lpdwSize, [out] _ST_OBJNAME** lppstNames, [out] long* lplReturnCode)
+  FUNC void GetPOUNames([in] byte[32] lpbCallID, [in] long lPOUType, [out] ulong* lpdwSize, [out] _ST_OBJNAME** lppstNames, [out] long* lplReturnCode)
+  FUNC void GetLabels([in] byte[32] lpbCallID, [in] long lLabelListType, [in] BSTR bstrLabelListName, [in] long lClassFilter, [in] long lRequestedProperties, [out] ulong* lpdwSize, [out] _ST_LABEL_INFO*** lpppstLabels, [out] long* lplReturnCode)
+  FUNC void ExportLibrary([in] byte[32] lpbCallID, [in] BSTR bstrFilePath, [in] long bAllowOverwrite, [out] long* lplReturnCode)
+  FUNC void OpenLibrary([in] BSTR bstrFilePath, [in] ushort wTimeOut, [in] long lUserInterfaceMode, [in] BSTR bstrPassword, [out] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void GetLabelAssignment([in] byte[32] lpbCallID, [in] BSTR bstrLabelName, [in] BSTR bstrObjectName, [in] long lObjecType, [out] BSTR* lpbstrLabelAssignment, [out] BSTR* lpbstrLabelClass, [out] BSTR* lpbstrLabelDataType, [out] long* lplReturnCode)
+  FUNC void UpdateLibraryPou([in] byte[32] lpbCallID, [in] BSTR bstrLibraryPath, [in] ulong dwObjectCount, [in] _ST_PROJECT_OBJECT* lpstObjectList, [in] long bUpdateDependentObjects, [out] long* lplErrorCount, [out] _ST_UPDATELIBPOU_ERROR** lppstErrorDetail, [out] long* lplReturnCode)
+  FUNC void GetMemCardFilePasswordTargetList([in] byte[32] lpbCallID, [in] long lDriveNo, [in] BSTR bstrTargetFolder, [out] ulong* lpdwFilePasswordSize, [out] _ST_FILE_PASSWORD** lpstFilePasswordList, [out] long* lplReturnCode)
+  FUNC void SimpleVerifyProject([in] byte[32] lpbCallID, [in] BSTR bstrProjectPath, [in] BSTR bstrReportFilePath, [in] BSTR bstrSourceHeader, [in] BSTR bstrDestinationHeader, [out] long* lpbIsIdentical, [out] long* lplReturnCode)
+  FUNC void SetConnectionList([in] byte[32] lpbCallID, [in] BSTR bstrDefaultConnectionName, [in] ulong dwSize, [in] _ST_CONNECTION_INFO_ALL* lpstConnectionList, [out] long* lplReturnCode)
+  FUNC void OpenGxw2ProjectForARConvert([in] BSTR bstrProjectPath, [in] ushort wTimeOut, [out] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void GetUpdateTimeList([in] byte[32] lpbCallID, [in] BSTR bstrProjectPath, [in] ushort wTimeOut, [out] ulong* lpdwUpdateSize, [out] _ST_UPDATE_TIME_DATA** lpstUpdateList, [out] long* lplReturnCode)
+  FUNC void GetProgramNo([in] byte[32] lpbCallID, [in] BSTR bstrProgramName, [out] ushort* lpwProgramNo, [out] long* lplReturnCode)
+  FUNC void ExportPlcFormatDataExt([in] byte[32] lpbCallID, [in] ulong dwPlcFileDataSize, [in] _ST_PLC_FILE_DATA* lpstPlcFileDataList, [in] BSTR bstrTargetFolder, [out] long* lplReturnCode)
+  FUNC void GetPOUsLockedByBlockPassword([in] byte[32] lpbCallID, [in] long lPOUType, [out] ulong* lpdwSize, [out] _ST_OBJNAME** lppstNames, [out] long* lplReturnCode)
+  FUNC void UnlockPOUBlockPassword([in] byte[32] lpbCallID, [in] BSTR bstrPOUName, [in] BSTR bstrPassword, [out] long* lplReturnCode)
+  FUNC void AddPOUBlockPassword([in] byte[32] lpbCallID, [in] BSTR bstrPOUName, [in] BSTR bstrPassword, [in] long lOptions, [out] long* lplReturnCode)
+  FUNC void GetFileListForDownload([in] byte[32] lpbCallID, [out] ulong* lpdwFileListSize, [out] _ST_PLC_FILE_DATA** lpstFileList, [out] long* lplReturnCode)
+  FUNC void GetExecutingFunctions([in] byte[32] lpbCallID, [out] ulong* ldwExecutingFunctions, [out] long* lplReturnCode)
+  FUNC void BuildProjectExt([in] byte[32] lpbCallID, [out] ulong* lpdwError, [out] ulong* lpdwWarning, [out] ulong* lpdwCheckWarning, [out] long* lplReturnCode)
+  FUNC void RebuildProjectExt([in] byte[32] lpbCallID, [in] long lLabelAssignmentType, [in] long bCheckProgram, [out] ulong* lpdwError, [out] ulong* lpdwWarning, [out] ulong* lpdwCheckWarning, [out] long* lplReturnCode)
+  FUNC void OpenProjectWithPasswordExt([in] BSTR bstrProjectPath, [in] ushort wTimeOut, [in] long lUserInterfaceMode, [in] BSTR bstrUserName, [in] BSTR bstrPassword, [in] BSTR bstrProjectPassword, [out] byte[32] lpbCallID, [inout] long* pbIsReadOnly, [out] long* lplReturnCode)
+  FUNC void RenameProjectExt([in] BSTR bstrProjectPath, [in] BSTR bstrNewProjectName, [in] ushort wTimeOut, [in] BSTR bstrUserName, [in] BSTR bstrPassword, [in] BSTR bstrProjectPassword, [out] long* lplReturnCode)
+  FUNC void SimpleVerifyProjectExt([in] byte[32] lpbCallID, [in] BSTR bstrProjectPath, [in] BSTR bstrReportFilePath, [in] BSTR bstrSourceHeader, [in] BSTR bstrDestinationHeader, [in] BSTR bstrUserName, [in] BSTR bstrPassword, [in] BSTR bstrProjectPassword, [out] long* lpbIsIdentical, [out] long* lplReturnCode)
+  FUNC void ImportPlcFormatDataExt([in] byte[32] lpbCallID, [in] ulong dwPlcFileDataSize, [in] _ST_PLC_FILE_DATA* lpstPlcFileDataList, [in] BSTR bstrTargetFolder, [in] BSTR bstrProjectPassword, [out] long* lplReturnCode)
+  FUNC void CreateNewProjectFromRecordingFile([in] BSTR bstrRecordingFilePath, [in] ushort wTimeOut, [in] long lUserInterfaceMode, [out] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void GetLabelAssignmentExt([in] byte[32] lpbCallID, [in] BSTR bstrLabelName, [in] BSTR bstrObjectName, [in] long lObjectType, [in] ulong dwGetLabelListMaxSize, [out] ulong* lpdwLabelDataCount, [out] ulong* lpdwLabelDataListSize, [out] _ST_LABEL_ASSIGNMENT_DATA** lpstLabelDataList, [out] long* lplReturnCode)
+  FUNC void GetLabelDeviceComment([in] byte[32] lpbCallID, [in] BSTR bstrName, [in] BSTR bstrObjectName, [in] long lObjectType, [in] long lRequestedProperties, [out] BSTR* lpbstrComment, [out] long* lplReturnCode)
+  FUNC void CreateNewProjectForTypeModel([in] BSTR bstrProjectPath, [in] BSTR bstrTitle, [in] long lSaveType, [in] ulong dwPlcSeries, [in] ulong dwPlcTypeModel, [in] ulong dwPlcAxisNum, [in] ulong dwNetworkType, [in] ulong dwLanguageType, [in] ushort wTimeOut, [in] long lOpenInterfaceMode, [in] BSTR bstrUserName, [in] BSTR bstrPassword, [in] ulong dwMode, [out] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void ExportParameterXml([in] byte[32] lpbCallID, [in] BSTR bstrExportFilePath, [in] long lUnitType, [out] long* lplReturnCode)
+  FUNC void GetSimulatorNo([in] byte[32] lpbCallID, [out] ushort* lpwSystemID, [out] ushort* lpwCPUID, [out] ushort* lpwSimulatorType, [out] long* lplReturnCode)
+  FUNC void GetProjectStatusExt([in] byte[32] lpbCallID, [in] BSTR bstrProjectPath, [in] ushort wTimeOut, [in] BSTR bstrProjectPassword, [out] ulong* lpdwStatus, [out] long* lplReturnCode)
+  FUNC void GetOperationModeExt([in] byte[32] lpbCallID, [in] BSTR bstrProjectPath, [in] ushort wTimeOut, [in] BSTR bstrProjectPassword, [out] ulong* lpdwOperationMode, [out] long* lplReturnCode)
+  FUNC void GetProjectSecurityVersion([in] byte[32] lpbCallID, [in] BSTR bstrProjectPath, [in] ushort wTimeOut, [out] ulong* lpdwSecurityVersion, [out] long* lplReturnCode)
+  FUNC void GetEZSocketOpenParamExt2([in] byte[32] lpbCallID, [in] BSTR bstrProjectPath, [in] ushort wTimeOut, [in] BSTR bstrProjectPassword, [out] _ST_ECMOPEN_W* lpstComOpen, [out] long* lplReturnCode)
+  FUNC void GetLabelCategory([in] byte[32] lpbCallID, [in] BSTR bstrLabelName, [in] BSTR bstrObjectName, [in] long lObjectType, [out] ulong* lpdwLabelCategory, [out] long* lplReturnCode)
+  FUNC void ExportUsedDeviceAndLabel([in] byte[32] lpbCallID, [in] BSTR bstrExportFilePath, [out] long* lplReturnCode)
+
+TKIND_RECORD _ST_CONNECTION_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=3
+  stConnectionID : _ST_OBJID
+  stConnectionCommonData : _ST_CONNEC_COMMON_DATA
+  stConnectionProperty : _ST_CONNECTION_PROPERTY
+
+TKIND_RECORD _ST_OBJID 00000000-0000-0000-0000-000000000000 funcs=0 vars=11
+  ullMainID : uint64
+  dwSubID0 : ulong
+  dwSubID1 : ulong
+  dwSubID2 : ulong
+  dwSubID3 : ulong
+  dwSubID4 : ulong
+  dwSubID5 : ulong
+  dwSubID6 : ulong
+  dwSubID7 : ulong
+  dwSubID8 : ulong
+  dwSubID9 : ulong
+
+TKIND_RECORD _ST_CONNEC_COMMON_DATA 00000000-0000-0000-0000-000000000000 funcs=0 vars=52
+  wCpuSeries : ushort
+  wAboutCpuType : ushort
+  wCompIF : ushort
+  lPortType : long
+  lMacMode : long
+  lCompCom : long
+  lCompBoard : long
+  lCompBaudRate : long
+  lCompSSCChNo : long
+  lCompNetwork : long
+  lCompStation : long
+  lEtherPrtcl : long
+  lBoardType : long
+  wPCIF : ushort
+  lCpuMode : long
+  lPCNetwork : long
+  lPCStation : long
+  wPCUnit : ushort
+  lPCParity : long
+  bPCSumCheck : long
+  lPCIPAddrType : long
+  lIPAddr : long[4]
+  szHost : ushort[100]
+  lPortNo : long
+  lEtherPortType : long
+  lEtherNetNo : long
+  lEtherStaNo : long
+  lParamCnv : long
+  lA6TELCnv : long
+  wNetKind : ushort
+  wNetKind2 : ushort
+  lNetStartIO : long
+  lNetStartIO2 : long
+  lNetNetwork : long
+  lNetStation : long
+  lNet2Network : long
+  lNet2Station : long
+  lMultiCpuStatus : long
+  lMultiCpuNum : long
+  lTimeSelfSta : long
+  lDlgOpenMode : long
+  lRetryTimes : long
+  lGotMode : long
+  lSerialSetupParity : long
+  lSerialSetupDataBits : long
+  lSerialSetupStopBits : long
+  lEtherTimeout : long
+  lRedundantCpuStatus : long
+  lRedundantCpuMode : long
+  lGOTF900TransparentMode : long
+  lGOT1000TransparentMode : long
+  lGOT1000TransparentMode_FX : long
+
+TKIND_RECORD _ST_CONNECTION_PROPERTY 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  stPropertyBin : _ST_CONNECTION_PROPERTY_BIN
+  szarrayPropertyStr : ushort[11]
+
+TKIND_RECORD _ST_CONNECTION_PROPERTY_BIN 00000000-0000-0000-0000-000000000000 funcs=0 vars=5
+  stLastUpdate : _ST_UPDATETIME
+  bActiveRoute : long
+  lSystemImageID : long
+  lRelayStationCpuSeries : long
+  lTargetStationCpuSeries : long
+
+TKIND_RECORD _ST_UPDATETIME 00000000-0000-0000-0000-000000000000 funcs=0 vars=8
+  wYear : ushort
+  wMonth : ushort
+  wDayOfWeek : ushort
+  wDay : ushort
+  wHour : ushort
+  wMinute : ushort
+  wSecond : ushort
+  wMilliseconds : ushort
+
+TKIND_RECORD _ST_ECMOPEN_W 00000000-0000-0000-0000-000000000000 funcs=0 vars=32
+  lStructSize : long
+  lNetworkNumber : long
+  lStationNumber : long
+  lUnitNumber : long
+  lConnectUnitNumber : long
+  lIONumber : long
+  lCpuType : long
+  lUnitType : long
+  lPacketType : long
+  lProtocolType : long
+  lPortNumber : long
+  lBaudRate : long
+  lDataBits : long
+  lParity : long
+  lStopBits : long
+  lControl : long
+  lpszHostAddress : LPWSTR
+  lCpuTimeOut : long
+  lTimeOut : long
+  lBufferSize : long
+  lSumCheck : long
+  lpwDeviceSet : ushort*
+  lSourceNetworkNumber : long
+  lSourceStationNumber : long
+  lDestinationPortNumber : long
+  lDestinationIONumber : long
+  lConnectChannelNumber : long
+  lMultiDropChannelNumber : long
+  lThroughNetworkType : long
+  lIntelligentPreferenceBit : long
+  lDidPropertyBit : long
+  lDsidPropertyBit : long
+
+TKIND_RECORD _stSystemConfigInfo 00000000-0000-0000-0000-000000000000 funcs=0 vars=1
+  stBase : _stSystemBaseInfo[8]
+
+TKIND_RECORD _stSystemBaseInfo 00000000-0000-0000-0000-000000000000 funcs=0 vars=4
+  stBaseDetail : _stSystemBaseDetail
+  stPowerSupply1 : _stSystemPowerInfo
+  stPowerSupply2 : _stSystemPowerInfo
+  stSlot : _stSystemSlotInfo[13]
+
+TKIND_RECORD _stSystemBaseDetail 00000000-0000-0000-0000-000000000000 funcs=0 vars=3
+  wSlotNum : ushort
+  wSeries : ushort
+  wUnitCode : ushort
+
+TKIND_RECORD _stSystemPowerInfo 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  wSeries : ushort
+  wUnitCode : ushort
+
+TKIND_RECORD _stSystemSlotInfo 00000000-0000-0000-0000-000000000000 funcs=0 vars=7
+  wSeries : ushort
+  wIONum : ushort
+  wUnitKind : ushort
+  wUnitDetailKind : ushort
+  wXY : ushort
+  wUnitCode : ushort
+  wExUnitCode : ushort
+
+TKIND_RECORD _ST_CONNECTION_INFO_ALL 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  stConnectionInfo : _ST_CONNECTION_INFO
+  szConnectionName : ushort[257]
+
+TKIND_RECORD _stSystemConfigInfoFXV 00000000-0000-0000-0000-000000000000 funcs=0 vars=1
+  stSlot : _stSystemSlotInfoFXV[128]
+
+TKIND_RECORD _stSystemSlotInfoFXV 00000000-0000-0000-0000-000000000000 funcs=0 vars=8
+  bSeries : byte
+  bINum : byte
+  bONum : byte
+  bUnitKind : byte
+  bX : byte
+  bY : byte
+  wUnitCode : ushort
+  wExUnitCode : ushort
+
+TKIND_RECORD _ST_PLC_FILE_DATA 00000000-0000-0000-0000-000000000000 funcs=0 vars=5
+  wFileType : ushort
+  wcFileName : ushort[257]
+  lDriveNo : long
+  cFilePassword : char[33]
+  ullFileSize : uint64
+
+TKIND_RECORD _ST_OBJNAME 00000000-0000-0000-0000-000000000000 funcs=0 vars=1
+  wcNameStr : ushort[257]
+
+TKIND_RECORD _ST_LABEL_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=11
+  wcNameStr : ushort[257]
+  wcDataTypeStr : ushort[513]
+  wcClassStr : ushort[20]
+  wcAssignmentStr : ushort[1465]
+  wcInitialValueStr : ushort[513]
+  wcConstantStr : ushort[513]
+  wcCommentStr : ushort[1025]
+  wcRemarkStr : ushort[1025]
+  bAccessFromExternalDevice : long
+  bDataTransferVariable : long
+  wcHardwareNameExtension : ushort[17]
+
+TKIND_RECORD _ST_PROJECT_OBJECT 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  lType : long
+  wcName : ushort[257]
+
+TKIND_RECORD _ST_UPDATELIBPOU_ERROR 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  stProjectObject : _ST_PROJECT_OBJECT
+  lErrorCode : long
+
+TKIND_RECORD _ST_FILE_PASSWORD 00000000-0000-0000-0000-000000000000 funcs=0 vars=3
+  wFileType : ushort
+  wcFileName : ushort[257]
+  lPasswordExistState : long
+
+TKIND_RECORD _ST_UPDATE_TIME_DATA 00000000-0000-0000-0000-000000000000 funcs=0 vars=3
+  bstrDateName : BSTR
+  iDataType : int
+  stUpdateTime : _ST_UPDATE_TIME
+
+TKIND_RECORD _ST_UPDATE_TIME 00000000-0000-0000-0000-000000000000 funcs=0 vars=8
+  usYear : ushort
+  usMonth : ushort
+  usDayOfWeek : ushort
+  usDay : ushort
+  usHour : ushort
+  usMinute : ushort
+  usSecond : ushort
+  usMilliseconds : ushort
+
+TKIND_RECORD _ST_LABEL_ASSIGNMENT_DATA 00000000-0000-0000-0000-000000000000 funcs=0 vars=4
+  bstrLabelName : BSTR
+  bstrLabelAssignment : BSTR
+  bstrLabelClass : BSTR
+  bstrLabelDataType : BSTR
+
+TKIND_DISPATCH _IGXW3CallCommunicationEvents 72028fd9-430c-4e03-b8cd-78bfe12c2f5d funcs=0 vars=0
+
+TKIND_COCLASS GXW3CallCommunication 59f35404-36d9-4291-92de-1e8f5f540f13 funcs=0 vars=0
+
+TKIND_DISPATCH IGXW3CallCommunication 69f228f8-5ec3-4dc6-b870-63dc1a258aee funcs=170 vars=0
+  FUNC void QueryInterface([in] GUID* riid, [out] void** ppvObj)
+  FUNC ulong AddRef()
+  FUNC ulong Release()
+  FUNC void GetTypeInfoCount([out] uint* pctinfo)
+  FUNC void GetTypeInfo([in] uint itinfo, [in] ulong lcid, [out] void** pptinfo)
+  FUNC void GetIDsOfNames([in] GUID* riid, [in] char** rgszNames, [in] uint cNames, [in] ulong lcid, [out] long* rgdispid)
+  FUNC void Invoke([in] long dispidMember, [in] GUID* riid, [in] ulong lcid, [in] ushort wFlags, [in] DISPPARAMS* pdispparams, [out] VARIANT* pvarResult, [out] EXCEPINFO* pexcepinfo, [out] uint* puArgErr)
+  FUNC void Initialize([in] IUnknown* lpCommandSender)
+  FUNC void NeoWhoAreYou([in] byte[32] lpbCallID, [in] long lEntryFlag, [in] long lSelectFlag, [in] long lRmtPassFlag, [out] ulong* lpwCncttype, [out] BSTR* lpbstrCpuStr, [out] long* lplCpuCnt, [out] long* lplCpuNo, [out] ushort* lpwCpuSystem, [out] ulong* lplExtCpuCode, [out] long* lplReturnCode)
+  FUNC void SetPlcStatusMode([in] byte[32] lpbCallID, [in] long lPlcStatus, [out] long* lplReturnCode)
+  FUNC void GetPlcRunStatus([in] byte[32] lpbCallID, [out] ushort* lpwPlcStatusResult, [out] long* lplReturnCode)
+  FUNC void GetStationType([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkType, [out] ushort* lpwStationType, [out] long* lplReturnCode)
+  FUNC void ReadUnitParameter([in] byte[32] lpbCallID, [out] byte[32] lpbCreateCallID, [out] long* lplReturnCode)
+  FUNC void ReleaseReadData([in] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void GetCCLinkIEFieldRefreshParam([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] ulong* lpdwRefreshDeviceParamSize, [out] _ST_GXW3_TENSO_REF_CCIE_FIELD** lpstRefreshDeviceParamAry, [out] long* lplReturnCode)
+  FUNC void GetCCLinkIEFieldRefreshDeviceSetting([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] ulong* lpdwRefreshDeviceSettingSize, [out] _ST_GXW3_NETREF_CCIE_FIELD_CONFIG** lpstRefreshDeviceSettingAry, [out] long* lplReturnCode)
+  FUNC void OpenOnline([in] byte[32] lpbCallID, [in] ulong dwOnlineOperation, [out] long* lplReturnCode)
+  FUNC void CloseOnline([in] byte[32] lpbCallID, [in] ulong dwOnlineOperation, [out] long* lplReturnCode)
+  FUNC void CheckSLMPCommandUse([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [out] long* lpbIsPossibleToUseSLMP, [out] long* lplReturnCode)
+  FUNC void ReadCCLinkIEFieldInfo([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [in] ulong dwInfoType, [out] ulong* lpdwUnitInfoSize, [out] ulong** lpdwUnitInfoArray, [out] long* lplReturnCode)
+  FUNC void ExecuteSLMPCommand([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [in] ushort wCommand, [in] ushort wSubCommand, [in] ulong dwReqDataSize, [in] byte* lpbyReqData, [in] ulong dwResDataSize, [out] ulong* lpdwReceiveResDataSize, [out] byte** lpbyResData, [out] ushort* lpwPDURetCode, [out] long* lplReturnCode)
+  FUNC void ReadCCLinkIEFieldRefreshDevice([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [in] ulong dwRefreshDeviceType, [in] ulong dwRefreshDeviceAddress, [in] ulong dwDataSize, [out] ushort* lpwData, [out] long* lplReturnCode)
+  FUNC void WriteCCLinkIEFieldRefreshDevice([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [in] ulong dwRefreshDeviceType, [in] ulong dwRefreshDeviceAddress, [in] ulong dwDataSize, [in] ushort* lpwData, [out] long* lplReturnCode)
+  FUNC void ReadDeviceRandom([in] byte[32] lpbCallID, [in] BSTR* lpbstrAddress, [in] ulong dwDataSize, [out] ushort* lpwData, [out] long* lplReturnCode)
+  FUNC void GetCCLinkIEFieldConfig([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] ulong* lpdwConfigDataArraySize, [out] byte** lpbyConfigDataArray, [out] long* lplReturnCode)
+  FUNC void ReadCCIEFieldSlaveUnitInfo([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [out] ulong* lpdwSlaveUnitInfoSize, [out] _ST_GX3_CCIE_FIELD_SLAVE_UNIT_INFO_WRAP** lpstSlaveUnitInfoArray, [out] long* lplReturnCode)
+  FUNC void GetCCLinkRefreshDevice([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] ulong* lpdwDeviceInfoSize, [out] _ST_DEVICE_NAME** lpstDeviceInfoArray, [out] long* lplReturnCode)
+  FUNC void ReadCCLinkInfo([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [in] ulong dwInfoType, [out] ulong* lpdwDataSize, [out] ulong** lpdwUnitInfoArray, [out] long* lplReturnCode)
+  FUNC void CCLinkMessageTransmitOpen([in] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void CCLinkMessageTransmitExecuteRequest([in] byte[32] lpbCallID, [in] long lIONumber, [in] long lStationNumber, [in] long lVersion, [in] ulong dwSendDataSize, [in] char* lpcSendData, [out] long* lplReturnCode)
+  FUNC void CCLinkMessageTransmitResultRead([in] byte[32] lpbCallID, [in] long lIONumber, [in] long lStationNumber, [in] long lVersion, [out] long* lplStatoinRSTS, [out] ulong* lpdwSendProressSize, [out] ulong* lpdwSendDataSize, [out] ulong* lpdwReceiveProressSize, [out] ulong* lpdwReceiveDataSize, [out] char** lpcReceiveData, [out] long* lplReturnCode)
+  FUNC void CCLinkMessageTransmitClose([in] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void ReadCCLinkRefreshDevice([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [in] ulong dwRefreshDeviceType, [in] ulong dwRefreshDeviceAddress, [in] ulong dwDataSize, [out] ushort* lpwData, [out] long* lplReturnCode)
+  FUNC void WriteCCLinkRefreshDevice([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [in] ulong dwRefreshDeviceType, [in] ulong dwRefreshDeviceAddress, [in] ulong dwDataSize, [in] ushort* lpwData, [out] long* lplReturnCode)
+  FUNC void GetCCLinkMode([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] ushort* lpwMode, [out] long* lplReturnCode)
+  FUNC void GetCCLinkConfig([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] ulong* lpdwConfigDataArraySize, [out] byte** lpbyConfigDataArray, [out] long* lplReturnCode)
+  FUNC void GetCCLinkRefreshParam([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] ulong* lpdwRefreshDeviceParamSize, [out] _ST_GXW3_TENSO_REF_CCLINK** lpstRefreshDeviceParamAry, [out] long* lplReturnCode)
+  FUNC void GetCCLinkRefreshDeviceSetting([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] ulong* lpdwRefreshDeviceSettingSize, [out] _ST_GXW3_NETREF_CCLINK_CONFIG** lpstRefreshDeviceSettingAry, [out] long* lplReturnCode)
+  FUNC void GetPlcFileList([in] byte[32] lpbCallID, [in] long lDriveNo, [out] ulong* lpdwPlcFileSize, [out] _ST_PLC_FILE** lpstPlcFileList, [out] long* lplReturnCode)
+  FUNC void GetFilePasswordTargetList([in] byte[32] lpbCallID, [in] long lDriveNo, [out] ulong* lpdwFilePasswordSize, [out] _ST_FILE_PASSWORD** lpstFilePasswordList, [out] long* lplReturnCode)
+  FUNC void SetRemotePassword([in] byte[32] lpbCallID, [in] BSTR bstrRemotePassword, [out] long* lplReturnCode)
+  FUNC void Upload([in] byte[32] lpbCallID, [in] ulong dwPlcFileDataSize, [in] _ST_PLC_FILE_DATA* lpstPlcFileDataList, [out] long* lplReturnCode)
+  FUNC void GetCCIEFMountData([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [out] _STCCIEF_MOUNT_INFO* lpstCCIEFMountInfo, [out] _STCCIEF_UNIT_INFO* lpstCCIEFUnitInfo, [out] ulong* lpdwEXError, [out] long* lplReturnCode)
+  FUNC void GetCCIECMountData([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [out] _STCCIEC_MOUNT_INFO* lpstCCIECMountInfo, [out] _STCCIEC_UNIT_INFO* lpstCCIECUnitInfo, [out] ulong* lpdwEXError, [out] long* lplReturnCode)
+  FUNC void GetIQRSeriesMountData([in] byte[32] lpbCallID, [in] long bIsCommonCheck, [out] _ST_IQR_MOUNT_INFO* lpstIQRMountInfo, [out] ulong* lpdwEXError, [out] long* lplReturnCode)
+  FUNC void InitializeEX([in] IUnknown* lpCommandSender, [in] BSTR bstrCultureName)
+  FUNC void RequestAutoDetectEtherNode([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [out] long* lplReturnCode)
+  FUNC void GetStateAutoDetectEtherNode([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [out] long* lpbStateFlg, [out] long* lplNodeCount, [out] long* lplReturnCode)
+  FUNC void AutoDetectEtherNode([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] long lNodeCount, [out] _ST_GXW3_ETHER_NODE_INFO* lpstEtherNodeInfo, [out] long* lplReturnCode)
+  FUNC void CheckSupportSLMPFunction([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [out] long* lplSupport, [out] long* lplReturnCode)
+  FUNC void GetCommunicationSettingForEthernet([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] long lWatchTime, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [inout] ushort* lpwGetTarget, [out] ushort* lpwPortNo, [out] ulong* lpdwTimeout, [out] long* lplReturnCode)
+  FUNC void CompareDeviceInformationForEthernet([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] long lWatchTime, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [in] ushort wVendorCode, [in] ulong dwModelCode, [in] ushort wVersion, [inout] ushort* lpwCompareTarget, [out] ushort* lpwResult, [out] long* lplReturnCode)
+  FUNC void GetParameterForEthernet([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] long lWatchTime, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [inout] _ST_GXW3_ETHERNET_PARAMETER* lpstParameter, [out] long* lplReturnCode)
+  FUNC void SetParameterForEthernet([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] long lWatchTime, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [in] _ST_GXW3_ETHERNET_PARAMETER* lpstParameter, [out] long* lplReturnCode)
+  FUNC void StartSetParameterForEthernet([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] long lWatchTime, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [out] long* lplReturnCode)
+  FUNC void EndSetParameterForEthernet([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] long lWatchTime, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [out] long* lplReturnCode)
+  FUNC void SLMPCommunicationOpen([in] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void SLMPCommunicationClose([in] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void RequestSetIPAdressForEthernet([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] _ST_GXW3_ETHER_REQ_IPADD_INFO* lpstEtherReqIPAddInfo, [out] long* lplReturnCode)
+  FUNC void GetIQFSeriesMountData([in] byte[32] lpbCallID, [in] long bIsCommonCheck, [out] _ST_IQF_MOUNT_INFO* lpstIQFMountInfo, [out] ulong* lpdwEXError, [out] long* lplReturnCode)
+  FUNC void LogonToPlc([in] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void GetPlcMode([in] byte[32] lpbCallID, [out] long* lplPlcMode, [out] long* lplReturnCode)
+  FUNC void IsPlcOnline([in] byte[32] lpbCallID, [out] long* lpbIsOnline, [out] long* lpbIsSimulation, [out] BSTR* lpbstrPlcType, [out] long* lplReturnCode)
+  FUNC void NeoWhoAreYouExt([in] byte[32] lpbCallID, [in] long lEntryFlag, [in] long lSelectFlag, [in] long lRmtPassFlag, [out] ulong* lpwCncttype, [out] BSTR* lpbstrCpuStr, [out] long* lplCpuCnt, [out] long* lplCpuNo, [out] ushort* lpwCpuSystem, [out] ulong* lplExtCpuCode, [out] ushort* lpwExtArea2, [out] long* lplReturnCode)
+  FUNC void GetIQRSeriesMountDataExt([in] byte[32] lpbCallID, [in] long bIsCommonCheck, [out] _ST_IQR_MOUNT_INFO_EX* lpstIQRMountInfo, [out] ulong* lpdwEXError, [out] long* lplReturnCode)
+  FUNC void MonitorAll([in] byte[32] lpbCallID, [in] long lMonitorAction, [out] long* lplReturnCode)
+  FUNC void MonitorPOU([in] byte[32] lpbCallID, [in] BSTR bstrPOUName, [in] BSTR bstrFBInstanceName, [in] BSTR bstrTargetLocation, [in] long lMonitorAction, [out] long* lplReturnCode)
+  FUNC void ReadBufferMemory([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] long lStartOffset, [in] long lReadSize, [out] byte* lpucData, [out] long* lplReturnCode)
+  FUNC void SendReceiveSLMPCommand([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wSendDataSize, [in] byte* lpucSendData, [in] long lRecvDataSize, [out] ushort* lpwRecvDataSize, [out] byte* lpucRecvData, [out] long* lplReturnCode)
+  FUNC void ReadCCIEFieldSLPRadioBridgeSlaveInfo([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [in] ushort wSlaveUnitID, [out] byte** lppucUnitInfo, [out] ushort* lpwBridgeErrorCode, [out] long* lplReturnCode)
+  FUNC void CheckCCIEFieldSLPRadioBridgeUnitReady([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [out] long* lpbReady, [out] ushort* lpwBridgeErrorCode, [out] long* lplReturnCode)
+  FUNC void ReadCCIEFieldSLPRadioBridgeSlaveParameter([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [in] ushort wSlaveUnitID, [in] ushort wParameterCount, [in] ushort* lpwTargetParameterArray, [out] ushort* lpwReadParameterCount, [out] ushort** lppwReadParameterArray, [out] ushort** lppwReadParameterSizeArray, [out] byte** lppucReadParameterDataArray, [out] ushort* lpwBridgeErrorCode, [out] long* lplReturnCode)
+  FUNC void WriteCCIEFieldSLPRadioBridgeSlaveParameter([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [in] ushort wSlaveUnitID, [in] ushort wParameterCount, [in] ushort* lpwTargetParameterArray, [in] ushort* lpwWriteParameterSizeArray, [in] byte* lpucWriteParameterDataArray, [out] ushort* lpwBridgeErrorCode, [out] long* lplReturnCode)
+  FUNC void ReadMonitorDataForCCLinkIEFToSLPRadio([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [in] ushort wStationSubID, [out] _ST_SLPRADIOBRIDGEMONDATA* lpstBridgeMonData, [out] _ST_SLPRADIOMONDATA* lpstSLPRadioMonData, [out] long* lplReturnCode)
+  FUNC void CreateASLINKPack([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] long bRecognition, [out] ushort* lpwConnectCount, [out] ushort* lpwErrorCount, [out] ushort* lpwArarmCount, [out] _ST_GXW3_ASLINKMONDATALIST_BASE* lpstAsLinkArray, [out] ulong* lpdwEXError, [out] ulong* lpdwStatus, [out] ulong* lpdwRequestAutoAddressError, [out] long* lplReturnCode)
+  FUNC void CheckASLINKMasterReady([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] long* lpbReady, [out] ushort* lpwMasterErrorCode, [out] long* lplReturnCode)
+  FUNC void ReadASLINKSlaveParameter([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wUnitID, [out] ulong* lpdwDataSize, [out] ushort** lpwSlaveInfoArray, [out] ushort* lpwMasterErrorCode, [out] long* lplReturnCode)
+  FUNC void WriteASLINKSlaveParameter([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wUnitID, [in] ulong dwDataSize, [in] _ST_GXW3_ASLINK_WRITE_PARAM* lpstWriteParamArray, [out] ushort* lpwMasterErrorCode, [out] long* lplReturnCode)
+  FUNC void ReadASLINKSlaveInfo([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wUnitID, [in] ulong dwDataType, [out] ulong* lpdwDataSize, [out] ulong** lpdwSlaveInfoArray, [out] ushort* lpwMasterErrorCode, [out] long* lplReturnCode)
+  FUNC void RequestAutoDetectCCIEFBasicNode([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [out] long* lplReturnCode)
+  FUNC void SPBufferReadforCCIEFieldSlave([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wUnitCode, [out] _ST_GXW3_CCLINKIEFSLAVEMONLIST_BASE* lpstCCLinkIEFieldArray, [out] long* lplReturnCode)
+  FUNC void GetErrorMessage([in] byte[32] lpbCallID, [in] ulong dwErrorCode, [out] BSTR* lpszErrorMessage, [out] long* lplReturnCode)
+  FUNC void CheckSupportCCIEFBasicFunction([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [out] long* lplSupport, [out] long* lplReturnCode)
+  FUNC void GetAllFileListForLFN([in] byte[32] lpbCallID, [inout] BSTR* lpszDirectoryName, [out] _ST_GXW3_FILELIST_LFNDUMW** lpStFileList_DUMW, [out] long* lplFileCount, [out] long* lplReturnCode)
+  FUNC void SetDriveData([in] byte[32] lpbCallID, [in] ushort wDriveNo, [out] long* lplReturnCode)
+  FUNC void DeviceReadOpen([in] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void DeviceReadRun([in] byte[32] lpbCallID, [in] long lErrorCheck, [in] ulong dwBitLength, [in] ulong dwWordLength, [in] ulong dwDWordLength, [in] ulong dwQWordLength, [in] ushort* lpszBitDevice, [in] ushort* lpszWordDevice, [in] ushort* lpszDWordDevice, [in] ushort* lpszQWordDevice, [out] ushort* lpwBitValue, [out] ushort* lpwWordValue, [out] ulong* lpdwDWordValue, [out] uint64* lpullQWordValue, [out] long* lplReturnCode)
+  FUNC void DeviceReadClose([in] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void DeviceWriteOpen([in] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void DeviceWriteRun([in] byte[32] lpbCallID, [in] ulong dwBitLength, [in] ulong dwWordLength, [in] ulong dwDWordLength, [in] ulong dwQWordLength, [in] ushort* lpszBitDevice, [in] ushort* lpszWordDevice, [in] ushort* lpszDWordDevice, [in] ushort* lpszQWordDevice, [in] ushort* lpwBitValue, [in] ushort* lpwWordValue, [in] ulong* lpdwDWordValue, [in] uint64* lpullQWordValue, [out] long* lplReturnCode)
+  FUNC void DeviceWriteClose([in] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void CheckBackupRestoreForCCLinkIEF([in] byte[32] lpbCallID, [out] long* lplSupport, [out] long* lplReturnCode)
+  FUNC void CheckBackupRestoreForCCLink([in] byte[32] lpbCallID, [out] long* lplSupport, [out] long* lplReturnCode)
+  FUNC void CheckBackupRestoreForASLINK([in] byte[32] lpbCallID, [out] long* lplSupport, [out] long* lplReturnCode)
+  FUNC void SPBufferReadforCCLinkSlave([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] long lMasterMode, [out] ushort* lpwConnectCount, [out] _ST_GXW3_CCLINKSLAVEMONLIST_BASE2* lpstCcLinkSlaveArray, [out] long* lplReturnCode)
+  FUNC void SPBufferReadforASLINK([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] ushort* lpwConnectCount, [out] ushort* lpwErrorCount, [out] ushort* lpwArarmCount, [out] _ST_GXW3_ASLINKMONDATALIST_BASE* lpstAsLinkArray, [out] long* lplReturnCode)
+  FUNC void UploadProject([in] byte[32] lpbCallID, [in] long lDriveNo, [in] ulong dwFileTypes, [in] BSTR bstrPassword, [out] long* lplDNaviErrorCode, [out] long* lplReturnCode)
+  FUNC void GetCCLinkMountDataFromBuffMem([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] _ST_GXW3_CCLINK_MOUNT_INFO* lpstCCLinkMountInfo, [out] _ST_GXW3_CCLINK_UNIT_INFO* lpstCCLinkUnitInfo, [out] ulong* lpdwEXError, [out] long* lplReturnCode)
+  FUNC void CheckCCLinkASLINKBridgeUnitReady([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [out] long* lpbReady, [out] ushort* lpwBridgeErrorCode, [out] long* lplReturnCode)
+  FUNC void ReadCCLinkASLINKBridgeSlaveInfo([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [in] ushort wSlaveUnitID, [out] ushort** lppwUnitInfo, [out] ushort* lpwBridgeErrorCode, [out] long* lplReturnCode)
+  FUNC void ReadCCLinkASLINKBridgeSlaveParameter([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [in] ushort wSlaveUnitID, [in] ushort wParameterCount, [in] ushort* lpwTargetParameterArray, [out] ushort** lppwReadParameterArray, [out] ushort* lpwBridgeErrorCode, [out] long* lplReturnCode)
+  FUNC void WriteCCLinkASLINKBridgeSlaveParameter([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [in] ushort wSlaveUnitID, [in] ushort wParameterCount, [in] ushort* lpwTargetParameterArray, [in] ushort* lpwWriteParameterArray, [out] ushort* lpwBridgeErrorCode, [out] long* lplReturnCode)
+  FUNC void CanExecuteAutoDetectForCCLinkASLINKBridge([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] ulong* lpdwEXError, [out] long* lplReturnCode)
+  FUNC void ReadMonitorDataForCCLinkToASLINK([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] long lStationNumber, [in] ushort wStationSubID, [out] ushort* lpwConnectCount, [out] ushort* lpwErrorCount, [out] ushort* lpwArarmCount, [inout] _ST_GXW3_ASLINKMONDATALIST_BASE* lpstAsLinkArray, [out] long* lplReturnCode)
+  FUNC void GetWorkDevice99Supportflags([in] byte[32] lpbCallID, [in] ushort wVolNo, [out] ushort* lpwSupport, [out] long* lplReturnCode)
+  FUNC void VerifyCheckCodeForEthernet([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] long lWatchTime, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [in] ushort wFileSize, [in] byte* lpbyFileName, [in] ulong dwCheckCode, [out] long* lplReturnCode)
+  FUNC void GetOutputMapFileNameForEthernet([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] long lWatchTime, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [in] ushort* lpwFileSize, [in] byte* lpbyFileName, [out] long* lplReturnCode)
+  FUNC void GetOutPutAddressFileForEthernet([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] long lWatchTime, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [in] ushort wFileNameSize, [in] byte* lpbyFileName, [inout] ulong* lpdwReadDataSize, [out] byte* lpbyReadData, [out] long* lplReturnCode)
+  FUNC void RequestReadStatus2ForEthernet([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [out] long* lplReturnCode)
+  FUNC void GetStatusForEthernet([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [out] _ST_GXW3_ETHER_STATUS_INFO* lpstEtherStatusInfo, [out] long* lplReturnCode)
+  FUNC void GetCCLinkIEFieldRefreshDeviceStringList([in] byte[32] lpbCallID, [in] ushort wUnitCount, [inout] _ST_UNIT_REFRESH_DEVICE* lpstDeviceList, [out] long* lplReturnCode)
+  FUNC void GetCCLinkIEFieldConfigList([in] byte[32] lpbCallID, [out] ushort* lpwUnitCount, [out] _ST_CONFIG_DATA** lpstConfigDataList, [out] long* lplReturnCode)
+  FUNC void ExecuteSLMPCommandEX([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wSLMPStationNumber, [in] ushort wCommand, [in] ushort wSubCommand, [in] ulong dwReqDataSize, [in] byte* lpbyReqData, [in] ulong dwResDataSize, [out] ulong* lpdwReceiveResDataSize, [out] byte** lpbyResData, [out] ushort* lpwPDURetCode, [out] long* lplReturnCode)
+  FUNC void ReadStatusForEthernet([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] long lWatchTime, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [out] ushort* lpwStatusCode, [out] long* lplReturnCode)
+  FUNC void GetCCIENexusRefreshParam([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] ulong* lpdwRefreshDeviceParamSize, [out] _ST_GXW3_TENSO_REF_CCIE_FIELD** lpstRefreshDeviceParamAry, [out] long* lplReturnCode)
+  FUNC void GetCCIENexusRefreshDeviceSetting([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] ulong* lpdwRefreshDeviceSettingSize, [out] _ST_GXW3_NETREF_CCIE_NEXUS_CONFIG** lpstRefreshDeviceSettingAry, [out] long* lplReturnCode)
+  FUNC void GetCCIENexusConfig([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] ulong* lpdwConfigDataArraySize, [out] byte** lpbyConfigDataArray, [out] long* lplReturnCode)
+  FUNC void ReadCCIENexusInfo([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [in] ulong dwInfoType, [out] ulong* lpdwUnitInfoSize, [out] ulong** lpdwUnitInfoArray, [out] long* lplReturnCode)
+  FUNC void ReadCCIENexusRefreshDevice([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [in] ulong dwRefreshDeviceType, [in] ulong dwRefreshDeviceAddress, [in] ulong dwDataSize, [out] ushort* lpwData, [out] long* lplReturnCode)
+  FUNC void WriteCCIENexusRefreshDevice([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [in] ulong dwRefreshDeviceType, [in] ulong dwRefreshDeviceAddress, [in] ulong dwDataSize, [in] ushort* lpwData, [out] long* lplReturnCode)
+  FUNC void GetCCIENexusMountData([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [out] _STCCIEN_UNIT_INFO* lpstCCIENUnitInfo, [out] ulong* lpdwEXError, [out] long* lplReturnCode)
+  FUNC void ReadCCIENexusUnitInfo([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [out] _ST_GX3_CCIE_NEXUS_SLAVE_UNIT_INFO* lpstSlaveUnitInfo, [out] long* lplReturnCode)
+  FUNC void GetCCIEFMountDataForNexus([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [out] _STCCIEF_MOUNT_INFO* lpstCCIEFMountInfo, [out] _STCCIEF_UNIT_INFO* lpstCCIEFUnitInfo, [out] ulong* lpdwEXError, [out] long* lplReturnCode)
+  FUNC void ExecuteSLMPCommandForNexus([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wStationNumber, [in] long lWatchTime, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [in] ushort wCommand, [in] ushort wSubCommand, [in] ulong dwReqDataSize, [in] byte* lpbyReqData, [in] ulong dwResDataSize, [out] ulong* lpdwReceiveResDataSize, [out] byte** lpbyResData, [out] ushort* lpwPDURetCode, [out] long* lplReturnCode)
+  FUNC void ExecuteSLMPCommandEXForNexus([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wSLMPStationNumber, [in] long lWatchTime, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [in] ushort wCommand, [in] ushort wSubCommand, [in] ulong dwReqDataSize, [in] byte* lpbyReqData, [in] ulong dwResDataSize, [out] ulong* lpdwReceiveResDataSize, [out] byte** lpbyResData, [out] ushort* lpwPDURetCode, [out] long* lplReturnCode)
+  FUNC void SPBufferReadforASLINKExt([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] ushort* lpwConnectCount, [out] ushort* lpwErrorCount, [out] ushort* lpwArarmCount, [out] _ST_GXW3_ASLINKMONDATALISTEXT_BASE* lpstAsLinkArray, [out] long* lplReturnCode)
+  FUNC void CheckCCIEFieldASLINKBridgeUnitReady([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [out] long* lpbReady, [out] ushort* lpwBridgeErrorCode, [out] long* lplReturnCode)
+  FUNC void ReadCCIEFieldASLINKBridgeSlaveInfo([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [in] ushort wSlaveUnitID, [out] ushort** lppwUnitInfo, [out] ushort* lpwBridgeErrorCode, [out] long* lplReturnCode)
+  FUNC void ReadCCIEFieldASLINKBridgeSlaveParameter([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [in] ushort wSlaveUnitID, [in] ushort wParameterCount, [in] ushort* lpwTargetParameterArray, [out] ushort** lppwReadParameterArray, [out] ushort* lpwBridgeErrorCode, [out] long* lplReturnCode)
+  FUNC void WriteCCIEFieldASLINKBridgeSlaveParameter([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [in] ushort wSlaveUnitID, [in] ushort wParameterCount, [in] ushort* lpwTargetParameterArray, [in] ushort* lpwWriteParameterArray, [out] ushort* lpwBridgeErrorCode, [out] long* lplReturnCode)
+  FUNC void ReadMonitorDataForCCLinkIEFToASLINK([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [in] ushort wStationSubID, [out] ushort* lpwConnectCount, [out] ushort* lpwErrorCount, [out] ushort* lpwArarmCount, [inout] _ST_GXW3_ASLINKMONDATALIST_BASE* lpstAsLinkArray, [out] long* lplReturnCode)
+  FUNC void GetCCIENexusMountDataEx([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wOption, [out] _STCCIEN_UNIT_INFO_EX* lpstCCIENUnitInfo, [out] ulong* lpdwEXError, [out] long* lplReturnCode)
+  FUNC void GetCCIENexusMountDataEx2([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wOption, [out] _STCCIEN_UNIT_INFO_EX2* lpstCCIENUnitInfo, [out] ulong* lpdwEXError, [out] long* lplReturnCode)
+  FUNC void ExecuteSLMPCommand6EFrame([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wSLMPStationNumber, [in] ushort wSLMPStationExNumber, [in] ushort wSLMPMultiDropNumber, [in] long lWatchTime, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [in] ushort wCommand, [in] ushort wSubCommand, [in] ulong dwReqDataSize, [in] byte* lpbyReqData, [in] ulong dwResDataSize, [out] ulong* lpdwReceiveResDataSize, [out] byte** lpbyResData, [out] ushort* lpwPDURetCode, [out] long* lplReturnCode)
+  FUNC void UpdateFirmware([in] byte[32] lpbCallID, [in] _ST_FWUP_DATA* lpstFwupList, [in] ushort wFwupListCount, [in] long bIsFwupdateReset, [out] _ST_FWUP_STATUS** lpstFwupStatus, [out] long* lplReturnCode)
+  FUNC void GetTSNUnitVersion([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] ushort* lpwPort1Version, [out] ushort* lpwPort2Version)
+  FUNC void CreateASLINKPackForCCIETSNToASLINK([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [in] long bRecognition, [out] ushort* lpwConnectCount, [out] ushort* lpwErrorCount, [out] ushort* lpwArarmCount, [out] _ST_GXW3_TSNASLINKDATALIST_BASE* lpstAsLinkArray, [out] ulong* lpdwEXError, [out] ulong* lpdwStatus, [out] ulong* lpdwRequestAutoAddressError, [out] ulong* lpdwRequestAutoAddressAlarm, [out] long* lplReturnCode)
+  FUNC void CheckCCIETSNASLINKBridgeUnitReady([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [out] long* lpbReady, [out] ushort* lpwBridgeAlarmCode, [out] ushort* lpwBridgeErrorCode, [out] long* lplReturnCode)
+  FUNC void ReadCCIETSNASLINKBridgeSlaveInfo([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [in] ushort wSlaveUnitID, [out] _ST_GXW3_TSNASLINKDATA_BASE* lpstAslinkData, [out] ushort* lpwBridgeAlarmCode, [out] ushort* lpwBridgeErrorCode, [out] long* lplReturnCode)
+  FUNC void ReadCCIETSNASLINKBridgeSlaveParameter([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [in] ushort wSlaveUnitID, [in] ushort wParameterCount, [in] ushort* lpwTargetParameterArray, [out] ushort** lppwReadParameterArray, [out] ushort* lpwBridgeAlarmCode, [out] ushort* lpwBridgeErrorCode, [out] long* lplReturnCode)
+  FUNC void WriteCCIETSNASLINKBridgeSlaveParameter([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [in] ushort wSlaveUnitID, [in] ushort wParameterCount, [in] ushort* lpwTargetParameterArray, [in] ushort* lpwWriteParameterArray, [out] ushort* lpwBridgeAlarmCode, [out] ushort* lpwBridgeErrorCode, [out] long* lplReturnCode)
+  FUNC void ReadMonitorDataForCCIETSNToASLINK([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [in] ushort wStationSubID, [out] ushort* lpwConnectCount, [out] ushort* lpwErrorCount, [out] ushort* lpwArarmCount, [inout] _ST_GXW3_ASLINKMONDATALISTEXT_BASE* lpstAsLinkArray, [out] long* lplReturnCode)
+  FUNC void Download([in] byte[32] lpbCallID, [in] long lWriteMode, [in] ulong dwPlcFileDataSize, [in] _ST_PLC_FILE_DATA* lpstPlcFileDataList, [out] long* lplReturnCode)
+  FUNC void SetPlcRunStatus([in] byte[32] lpbCallID, [in] ushort wTarget, [in] ushort wPlcStatus, [in] long lNetNo, [in] long lGroupNo, [in] long lClearMode, [in] long lSignalMode, [out] long* lplReturnCode)
+  FUNC void BeforeCreateASLINKPackForCCIETSNToASLINK([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wBridgeStationNumber, [in] long bRecognition, [out] ulong* lpdwEXError, [out] ulong* lpdwStatus, [out] ulong* lpdwRequestAutoAddressError, [out] ulong* lpdwRequestAutoAddressAlarm, [out] long* lplReturnCode)
+  FUNC void GetCCIENexusMountDataEx3([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wOption, [out] _STCCIEN_UNIT_INFO_EX3* lpstCCIENUnitInfo, [out] ulong* lpdwEXError, [out] long* lplReturnCode)
+  FUNC void GetCCIENexusMountDataEx4([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wOption, [out] _STCCIEN_UNIT_INFO_EX4* lpstCCIENUnitInfo, [out] ulong* lpdwEXError, [out] long* lplReturnCode)
+  FUNC void GetCCIETSNSupportInfo([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [out] long* lplSupportInfoCount, [out] ushort** lppwSupportInfoArray, [out] long* lplReturnCode)
+  FUNC void GetErrorInfoList([in] byte[32] lpbCallID, [in] BSTR bstrUnitName, [in] ulong dwIONum, [in] ulong dwSlot, [out] ulong* lpdwDataSize, [out] byte** lpbyData, [out] long* lplReturnCode)
+  FUNC void GetEventHistoryList([in] byte[32] lpbCallID, [in] ulong dwIONum, [in] ulong dwSlot, [out] ulong* lpdwDataSize, [out] byte** lpbyData, [out] long* lplReturnCode)
+  FUNC void GetUnitInfoListOnline([in] byte[32] lpbCallID, [in] BSTR bstrUnitName, [in] ulong dwIONum, [in] ulong dwSlot, [out] ulong* lpdwDataSize, [out] byte** lpbyData, [out] long* lplReturnCode)
+  FUNC void GetMountData([in] byte[32] lpbCallID, [out] ulong* lpdwDataSize, [out] byte** lpbyData, [out] long* lplReturnCode)
+  FUNC void GetCCIENexusMountDataEx5([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wSlaveStationNumber, [in] ushort wOption, [out] _STCCIEN_UNIT_INFO_EX5* lpstCCIENUnitInfo, [out] ulong* lpdwEXError, [out] long* lplReturnCode)
+  FUNC void SetIPAddressForTSN([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wSLMPStationNumber, [in] ushort wSLMPStationExNumber, [in] ushort wSLMPMultiDropNumber, [in] long lWatchTime, [in] byte[6] lpucDestMACAddress, [in] _ST_GXW3_CCIENEXUS_SET_IPADD_INFO* lpstSetIPAddInfo, [out] long* lplReturnCode)
+  FUNC void SetNodeIndicationForTSN([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [in] ushort wSLMPStationNumber, [in] ushort wSLMPStationExNumber, [in] ushort wSLMPMultiDropNumber, [in] long lWatchTime, [in] byte[6] lpucDestMACAddress, [in] ushort wDisplayIndication, [out] long* lplReturnCode)
+  FUNC void CheckSLMPCommandUseEX([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [out] long* lpbIsPossibleToUseSLMP, [out] long* lplReturnCode)
+  FUNC void ReadCCIETSNFieldBridgeInfo([in] byte[32] lpbCallID, [in] ushort wTSNIONumber, [in] ushort wTSNNetworkNumber, [in] ushort wTSNStationNumber, [in] ushort wTSNBridgeStationNumber, [in] long lWatchTime, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [in] ushort wStationNumber, [in] ulong dwInfoType, [out] ulong* lpdwUnitInfoSize, [out] ulong** lpdwUnitInfoArray, [out] long* lplReturnCode)
+  FUNC void ReadCCIETSNFieldBridgeSlaveUnitInfo([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wNetworkNumber, [in] ushort wStationNumber, [out] ulong* lpdwSlaveUnitInfoSize, [out] _ST_GX3_CCIE_FIELD_SLAVE_UNIT_INFO_WRAP** lpstSlaveUnitInfoArray, [out] long* lplReturnCode)
+  FUNC void GetCCIETSNFieldBridgeMountData([in] byte[32] lpbCallID, [in] ushort wTSNIONumber, [in] ushort wTSNNetworkNumber, [in] ushort wFieldNetworkNumber, [in] ushort wTSNStationNumber, [in] ushort wTSNBridgeStationNumber, [in] ushort wFieldBridgeStationNumber, [in] long lWatchTime, [in] BSTR bstrDestIPAddress, [in] long lDestinationPortNumber, [out] _STCCIEF_MOUNT_INFO* lpstCCIEFMountInfo, [out] _STCCIEF_UNIT_INFO* lpstCCIEFUnitInfo, [out] ulong* lpdwEXError, [out] long* lplReturnCode)
+  FUNC void ExecuteSLMPCommandEX2([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wSLMPIONumber, [in] ushort wNetworkNumber, [in] ushort wSLMPNetworkNumber, [in] ushort wStationNumber, [in] ushort wSLMPStationNumber, [in] ushort wCommand, [in] ushort wSubCommand, [in] ulong dwReqDataSize, [in] byte* lpbyReqData, [in] ulong dwResDataSize, [out] ulong* lpdwReceiveResDataSize, [out] byte** lpbyResData, [out] ushort* lpwPDURetCode, [out] long* lplReturnCode)
+  FUNC void UploadExt([in] byte[32] lpbCallID, [in] ulong dwPlcFileDataSize, [in] _ST_PLC_FILE_DATA* lpstPlcFileDataList, [in] BSTR bstrProjectPassword, [out] long* lplReturnCode)
+  FUNC void UploadProjectExt([in] byte[32] lpbCallID, [in] long lDriveNo, [in] ulong dwFileTypes, [in] BSTR bstrPassword, [in] BSTR bstrProjectPassword, [out] long* lplDNaviErrorCode, [out] long* lplReturnCode)
+  FUNC void GetM2GSeriesMountData([in] byte[32] lpbCallID, [in] long bIsCommonCheck, [out] _ST_M2G_MOUNT_INFO* lpstM2GMountInfo, [out] ulong* lpdwEXError, [out] long* lplReturnCode)
+  FUNC void SPBufferReadforASLINKV2([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] ushort* lpwConnectCount, [out] ushort* lpwErrorCount, [out] ushort* lpwAlarmCount, [out] _ST_GXW3_ASLINKV2MONDATALIST_BASE* lpstAsLinkArray, [out] long* lplReturnCode)
+  FUNC void BeforeCreateASLINKV2Pack([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] long bRecognition, [out] ulong* lpdwEXError, [out] ulong* lpdwStatus, [out] ulong* lpdwRequestAutoAddressError, [out] long* lplReturnCode)
+  FUNC void CreateASLINKV2Pack([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] long bRecognition, [out] ushort* lpwConnectCount, [out] ushort* lpwErrorCount, [out] ushort* lpwAlarmCount, [out] _ST_GXW3_ASLINKV2MONDATALIST_BASE* lpstAsLinkArray, [out] ulong* lpdwEXError, [out] ulong* lpdwStatus, [out] ulong* lpdwRequestAutoAddressError, [out] long* lplReturnCode)
+  FUNC void CheckASLINKV2MasterReady([in] byte[32] lpbCallID, [in] ushort wIONumber, [out] long* lpbReady, [out] ushort* lpwMasterErrorCode, [out] long* lplReturnCode)
+  FUNC void ReadASLINKV2RemoteInfo([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wUnitID, [in] ulong dwDataType, [out] ulong* lpdwDataSize, [out] ulong** lpdwRemoteInfoArray, [out] ushort* lpwMasterErrorCode, [out] long* lplReturnCode)
+  FUNC void ReadASLINKV2RemoteParameter([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wUnitID, [out] ulong* lpdwDataSize, [out] ushort** lpwRemoteInfoArray, [out] ushort* lpwMasterErrorCode, [out] long* lplReturnCode)
+  FUNC void WriteASLINKV2RemoteParameter([in] byte[32] lpbCallID, [in] ushort wIONumber, [in] ushort wUnitID, [in] ulong dwDataSize, [in] _ST_GXW3_ASLINKV2_WRITE_PARAM* lpstWriteParamArray, [out] ushort* lpwMasterErrorCode, [out] long* lplReturnCode)
+
+TKIND_RECORD _ST_GXW3_TENSO_REF_CCIE_FIELD 00000000-0000-0000-0000-000000000000 funcs=0 vars=4
+  wLnkDevCode : ushort
+  dwLinkDevAdr : ulong
+  dwPoint : ulong
+  stCpuWrap : _ST_GXW3_DEVNAME
+
+TKIND_RECORD _ST_GXW3_DEVNAME 00000000-0000-0000-0000-000000000000 funcs=0 vars=10
+  cDevCode : byte
+  cExtCode : byte
+  wDevNo : ushort
+  wExtNo : ushort
+  wDevModCmpst : ushort
+  wDevModInfo : ushort
+  ucExtModCmpst : byte
+  ucExtModInfo : byte
+  dwDevCIdxNo : ulong
+  dwExtCIdxNo : ulong
+
+TKIND_RECORD _ST_GXW3_NETREF_CCIE_FIELD_CONFIG 00000000-0000-0000-0000-000000000000 funcs=0 vars=13
+  wStaNo : ushort
+  wRWwSendAdr : ushort
+  wRWwSendNum : ushort
+  wRWrRecvAdr : ushort
+  wRWrRecvNum : ushort
+  wRYSendAdr : ushort
+  wRYSendNum : ushort
+  wRXRecvAdr : ushort
+  wRXRecvNum : ushort
+  stRWwRefDevInfo : _ST_GXW3_DEVNAME
+  stRWrRefDevInfo : _ST_GXW3_DEVNAME
+  stRYRefDevInfo : _ST_GXW3_DEVNAME
+  stRXRefDevInfo : _ST_GXW3_DEVNAME
+
+TKIND_RECORD _ST_GX3_CCIE_FIELD_SLAVE_UNIT_INFO_WRAP 00000000-0000-0000-0000-000000000000 funcs=0 vars=12
+  wVersion : ushort
+  wVendorCode : ushort
+  dwUnitTypeCode : ulong
+  wFWVersion : ushort
+  wHWVersion : ushort
+  lpcMakerStr : char[33]
+  lpcUnitTypeStr : char[21]
+  wRXSize : ushort
+  wRYSize : ushort
+  wRWwSize : ushort
+  wRWrSize : ushort
+  wFunction : ushort
+
+TKIND_RECORD _ST_DEVICE_NAME 00000000-0000-0000-0000-000000000000 funcs=0 vars=4
+  cDevCode : byte
+  cExtCode : byte
+  wDevNo : ushort
+  wExtNo : ushort
+
+TKIND_RECORD _ST_GXW3_TENSO_REF_CCLINK 00000000-0000-0000-0000-000000000000 funcs=0 vars=4
+  wLnkDevCode : ushort
+  dwLinkDevAdr : ulong
+  dwPoint : ulong
+  stCpuWrap : _ST_GXW3_DEVNAME
+
+TKIND_RECORD _ST_GXW3_NETREF_CCLINK_CONFIG 00000000-0000-0000-0000-000000000000 funcs=0 vars=13
+  wStaNo : ushort
+  wRWwSendAdr : ushort
+  wRWwSendNum : ushort
+  wRWrRecvAdr : ushort
+  wRWrRecvNum : ushort
+  wRYSendAdr : ushort
+  wRYSendNum : ushort
+  wRXRecvAdr : ushort
+  wRXRecvNum : ushort
+  stRWwRefDevInfo : _ST_GXW3_DEVNAME
+  stRWrRefDevInfo : _ST_GXW3_DEVNAME
+  stRYRefDevInfo : _ST_GXW3_DEVNAME
+  stRXRefDevInfo : _ST_GXW3_DEVNAME
+
+TKIND_RECORD _ST_PLC_FILE 00000000-0000-0000-0000-000000000000 funcs=0 vars=6
+  wFileType : ushort
+  wcFileName : ushort[257]
+  wLastTime : ushort
+  wLastDay : ushort
+  ullFileSize : uint64
+  wcTitleData : ushort[129]
+
+TKIND_RECORD _STCCIEF_MOUNT_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=17
+  wModeStatus : ushort
+  wLinkScanMode : ushort
+  wConstantLinkScan1 : ushort
+  wConstantLinkScan2 : ushort
+  wConstantLinkScanTime : ushort
+  wDoubleSequenceSettings : ushort
+  wLoopback : ushort
+  wSynchronousNetwork : ushort[8]
+  wBatonPass : ushort
+  wBatonPassStatus : ushort[8]
+  stRXOffsetSizeInfo : _STCCIEF_OFFSETSIZE[121]
+  stRYOffsetSizeInfo : _STCCIEF_OFFSETSIZE[121]
+  stRWwOffsetSizeInfo : _STCCIEF_OFFSETSIZE[121]
+  stRWrOffsetSizeInfo : _STCCIEF_OFFSETSIZE[121]
+  wReserveStation : ushort[8]
+  wErrorNonStation : ushort[8]
+  stNetworkConfigInfo : _STCCIEF_NETWORKCONFIG_INFO[120]
+
+TKIND_RECORD _STCCIEF_OFFSETSIZE 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  wOffset : ushort
+  wSize : ushort
+
+TKIND_RECORD _STCCIEF_NETWORKCONFIG_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=5
+  wSettingInfo : ushort
+  wRXRYOffset : ushort
+  wRXRYSize : ushort
+  wRWWRWROffset : ushort
+  wRWWRWRSize : ushort
+
+TKIND_RECORD _STCCIEF_UNIT_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  wStationCount : ushort
+  stStationInfo : _STCCIEF_STATION_INFO_ALL[121]
+
+TKIND_RECORD _STCCIEF_STATION_INFO_ALL 00000000-0000-0000-0000-000000000000 funcs=0 vars=5
+  wStationNumber : ushort
+  stBasicInfo : _STCCIEF_STATION_INFO
+  wSupportFunction : ushort
+  dwApparatusInfoArraySize : ulong
+  bApparatusInfoArray : byte[500]
+
+TKIND_RECORD _STCCIEF_STATION_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=3
+  wApparatusVer : ushort
+  wMakerCode : ushort
+  dwModelNameCode : ulong
+
+TKIND_RECORD _STCCIEC_MOUNT_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  stMasterInfo : _STCCIEC_STA_MOUNT_INFO
+  stSlaveInfo : _STCCIEC_STA_MOUNT_INFO[120]
+
+TKIND_RECORD _STCCIEC_STA_MOUNT_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=3
+  wMakerCode : ushort
+  dwModelNameCode : ulong
+  wVersion : ushort
+
+TKIND_RECORD _STCCIEC_UNIT_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=6
+  wNetworkNo : ushort
+  wGroupNo : ushort
+  wStationNo : ushort
+  wModeStatus : ushort
+  wStationInfo : ushort
+  wModuleType : ushort
+
+TKIND_RECORD _ST_IQR_MOUNT_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=9
+  bstrSystemName : BSTR
+  lChainBaseCnt : long
+  lAllSlot : long
+  lAllUnit : long
+  usErrorlUnit : long
+  bCpuVer : long
+  bMultiCpu : long
+  lMuttiCpuConct : long
+  stBaseDetailArray : _ST_IQR_BASE_DETAIL[8]
+
+TKIND_RECORD _ST_IQR_BASE_DETAIL 00000000-0000-0000-0000-000000000000 funcs=0 vars=14
+  bstrBaseName : BSTR
+  bBaseEquip : long
+  lBaseType : long
+  lBaseSlot : long
+  lBaseErr : long
+  lBaseStartUnit : long
+  lBaseEndUnit : long
+  lBaseUnit : long
+  lBaseErrorUnit : long
+  lCpuCnt : long
+  wUnitCode : ushort
+  stPowerInfo : _ST_IQR_POWERINFO
+  stCpuSlotDetail : _ST_IQR_CPUSLOTDETAIL
+  stIoSlotDetailArray : _ST_IQR_IOSLOTDETAIL[15]
+
+TKIND_RECORD _ST_IQR_POWERINFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=11
+  bstrPowerName : BSTR
+  wUnitCode : ushort
+  wExUnitCode : ushort
+  bPower : long
+  bstrManufactureInfo : BSTR
+  wUnitSeries : ushort
+  bPowerOnOff : long
+  bPowerError : long
+  dwPowerOffCnt : ulong
+  bPowerDisp : long
+  bPowerStop : long
+
+TKIND_RECORD _ST_IQR_CPUSLOTDETAIL 00000000-0000-0000-0000-000000000000 funcs=0 vars=20
+  bstrUnitName : BSTR
+  lIONo : long
+  bstrCpuFuncVer : BSTR
+  bstrSerialNo : BSTR
+  bUnitEquip : long
+  bAllocateErr : long
+  wUnitSeries : ushort
+  wUnitErr : ushort
+  wUnitErrCode : ushort
+  wUnitCode : ushort
+  wExUnitCode : ushort
+  bstrFWVersion : BSTR
+  bSynchronizationFlg : long
+  wSynchronization : ushort
+  lExSramListCount : long
+  stExSramList : _ST_IQR_SYSMON_EXRAM[1]
+  lIpAddressListCount : long
+  stIpAddressList : _ST_IQR_SYSMON_IPADDRESS[5]
+  lIeGatewayListCount : long
+  stIeGatewayList : _ST_IQR_SYSMON_IEGATEWAY[5]
+
+TKIND_RECORD _ST_IQR_SYSMON_EXRAM 00000000-0000-0000-0000-000000000000 funcs=0 vars=4
+  bValid : long
+  bstrFWVersion : BSTR
+  bstrManufactureInfo : BSTR
+  bstrUnitName : BSTR
+
+TKIND_RECORD _ST_IQR_SYSMON_IPADDRESS 00000000-0000-0000-0000-000000000000 funcs=0 vars=4
+  bIPv4 : long
+  bIPv6 : long
+  ucIPv4 : byte[4]
+  wIPv6 : ushort[8]
+
+TKIND_RECORD _ST_IQR_SYSMON_IEGATEWAY 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  wNetworkNo : ushort
+  wStationNo : ushort
+
+TKIND_RECORD _ST_IQR_IOSLOTDETAIL 00000000-0000-0000-0000-000000000000 funcs=0 vars=24
+  wManagementCpu : long
+  bstrUnitName : BSTR
+  lIONo : long
+  bstrCpuFuncVer : BSTR
+  bstrSerialNo : BSTR
+  bUnitEquip : long
+  bAllocateErr : long
+  wUnitTypeAct : ushort
+  wUnitSeries : ushort
+  wUnitErr : ushort
+  wUnitErrCode : ushort
+  lPoint : long
+  lPointEquip : long
+  bSynchronizationFlg : long
+  wSynchronization : ushort
+  bstrFWVersion : BSTR
+  wUnitCode : ushort
+  wExUnitCode : ushort
+  lExSramListCount : long
+  stExSramList : _ST_IQR_SYSMON_EXRAM[1]
+  lIpAddressListCount : long
+  stIpAddressList : _ST_IQR_SYSMON_IPADDRESS[5]
+  lIeGatewayListCount : long
+  stIeGatewayList : _ST_IQR_SYSMON_IEGATEWAY[5]
+
+TKIND_RECORD _ST_GXW3_ETHER_NODE_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  lInfoCount : long
+  lpstEthernetNodeData : _ST_GXW3_ETHER_NODE_BASE*
+
+TKIND_RECORD _ST_GXW3_ETHER_NODE_BASE 00000000-0000-0000-0000-000000000000 funcs=0 vars=17
+  byNodeNo : byte
+  byMACAdress : byte[6]
+  byIPAdressSize : byte
+  byIPAdress : byte[16]
+  bySubNet : byte[16]
+  byGateWayIP : byte[16]
+  byHostNameSize : byte
+  lpcHostName : char[65]
+  wVendorCode : ushort
+  dwUnitTypeCode : ulong
+  wVersion : ushort
+  byExIPAdressSize : byte
+  byExIPAdress : byte[16]
+  wExPortNo : ushort
+  wNodeStatus : ushort
+  wComPortNo : ushort
+  byProtocol : byte
+
+TKIND_RECORD _ST_GXW3_ETHERNET_PARAMETER 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  wParameterCount : ushort
+  lpstParameter : _ST_GXW3_ETHERNET_PARAMETER_BASE*
+
+TKIND_RECORD _ST_GXW3_ETHERNET_PARAMETER_BASE 00000000-0000-0000-0000-000000000000 funcs=0 vars=3
+  wParameterID : ushort
+  wParameterValueSize : ushort
+  lpbyParameterValue : byte*
+
+TKIND_RECORD _ST_GXW3_ETHER_REQ_IPADD_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=13
+  dwTimeOutValue : ulong
+  wPortNo : ushort
+  byMACAdress : byte[6]
+  byIPAdressSize : byte
+  byIPAdress : byte[16]
+  bySubNet : byte[16]
+  byGateWayIP : byte[16]
+  byHostNameSize : byte
+  lpcHostName : char[65]
+  byExIPAdressSize : byte
+  byExIPAdress : byte[16]
+  wExPortNo : ushort
+  byProtocol : byte
+
+TKIND_RECORD _ST_IQF_MOUNT_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=9
+  bstrSystemName : BSTR
+  lChainBaseCnt : long
+  lAllSlot : long
+  lAllUnit : long
+  usErrorlUnit : long
+  bCpuVer : long
+  bMultiCpu : long
+  lMuttiCpuConct : long
+  stBaseDetailArray : _ST_IQF_BASE_DETAIL[8]
+
+TKIND_RECORD _ST_IQF_BASE_DETAIL 00000000-0000-0000-0000-000000000000 funcs=0 vars=14
+  bstrBaseName : BSTR
+  bBaseEquip : long
+  lBaseType : long
+  lBaseSlot : long
+  lBaseErr : long
+  lBaseStartUnit : long
+  lBaseEndUnit : long
+  lBaseUnit : long
+  lBaseErrorUnit : long
+  lCpuCnt : long
+  wUnitCode : ushort
+  stPowerInfo : _ST_IQF_POWERINFO
+  stCpuSlotDetail : _ST_IQF_CPUSLOTDETAIL
+  stIoSlotDetailArray : _ST_IQF_IOSLOTDETAIL[19]
+
+TKIND_RECORD _ST_IQF_POWERINFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=11
+  bstrPowerName : BSTR
+  wUnitCode : ushort
+  wExUnitCode : ushort
+  bPower : long
+  bstrManufactureInfo : BSTR
+  wUnitSeries : ushort
+  bPowerOnOff : long
+  bPowerError : long
+  dwPowerOffCnt : ulong
+  bPowerDisp : long
+  bPowerStop : long
+
+TKIND_RECORD _ST_IQF_CPUSLOTDETAIL 00000000-0000-0000-0000-000000000000 funcs=0 vars=20
+  bstrUnitName : BSTR
+  lIONo : long
+  bstrCpuFuncVer : BSTR
+  bstrSerialNo : BSTR
+  bUnitEquip : long
+  bAllocateErr : long
+  wUnitSeries : ushort
+  wUnitErr : ushort
+  wUnitErrCode : ushort
+  wUnitCode : ushort
+  wExUnitCode : ushort
+  bstrFWVersion : BSTR
+  bSynchronizationFlg : long
+  wSynchronization : ushort
+  lExSramListCount : long
+  stExSramList : _ST_IQF_SYSMON_EXRAM[1]
+  lIpAddressListCount : long
+  stIpAddressList : _ST_IQF_SYSMON_IPADDRESS[5]
+  lIeGatewayListCount : long
+  stIeGatewayList : _ST_IQF_SYSMON_IEGATEWAY[5]
+
+TKIND_RECORD _ST_IQF_SYSMON_EXRAM 00000000-0000-0000-0000-000000000000 funcs=0 vars=4
+  bValid : long
+  bstrFWVersion : BSTR
+  bstrManufactureInfo : BSTR
+  bstrUnitName : BSTR
+
+TKIND_RECORD _ST_IQF_SYSMON_IPADDRESS 00000000-0000-0000-0000-000000000000 funcs=0 vars=4
+  bIPv4 : long
+  bIPv6 : long
+  ucIPv4 : byte[4]
+  wIPv6 : ushort[8]
+
+TKIND_RECORD _ST_IQF_SYSMON_IEGATEWAY 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  wNetworkNo : ushort
+  wStationNo : ushort
+
+TKIND_RECORD _ST_IQF_IOSLOTDETAIL 00000000-0000-0000-0000-000000000000 funcs=0 vars=24
+  wManagementCpu : long
+  bstrUnitName : BSTR
+  lIONo : long
+  bstrCpuFuncVer : BSTR
+  bstrSerialNo : BSTR
+  bUnitEquip : long
+  bAllocateErr : long
+  wUnitTypeAct : ushort
+  wUnitSeries : ushort
+  wUnitErr : ushort
+  wUnitErrCode : ushort
+  lPoint : long
+  lPointEquip : long
+  bSynchronizationFlg : long
+  wSynchronization : ushort
+  bstrFWVersion : BSTR
+  wUnitCode : ushort
+  wExUnitCode : ushort
+  lExSramListCount : long
+  stExSramList : _ST_IQF_SYSMON_EXRAM[1]
+  lIpAddressListCount : long
+  stIpAddressList : _ST_IQF_SYSMON_IPADDRESS[5]
+  lIeGatewayListCount : long
+  stIeGatewayList : _ST_IQF_SYSMON_IEGATEWAY[5]
+
+TKIND_RECORD _ST_IQR_MOUNT_INFO_EX 00000000-0000-0000-0000-000000000000 funcs=0 vars=9
+  bstrSystemName : BSTR
+  lChainBaseCnt : long
+  lAllSlot : long
+  lAllUnit : long
+  usErrorlUnit : long
+  bCpuVer : long
+  bMultiCpu : long
+  lMuttiCpuConct : long
+  stBaseDetailArray : _ST_IQR_BASE_DETAIL_EX[8]
+
+TKIND_RECORD _ST_IQR_BASE_DETAIL_EX 00000000-0000-0000-0000-000000000000 funcs=0 vars=15
+  bstrBaseName : BSTR
+  bBaseEquip : long
+  lBaseType : long
+  lBaseSlot : long
+  lBaseErr : long
+  lBaseStartUnit : long
+  lBaseEndUnit : long
+  lBaseUnit : long
+  lBaseErrorUnit : long
+  lCpuCnt : long
+  wUnitCode : ushort
+  stPowerInfo : _ST_IQR_POWERINFO
+  stPower2Info : _ST_IQR_POWERINFO
+  stCpuSlotDetail : _ST_IQR_CPUSLOTDETAIL
+  stIoSlotDetailArray : _ST_IQR_IOSLOTDETAIL[15]
+
+TKIND_RECORD _ST_SLPRADIOBRIDGEMONDATA 00000000-0000-0000-0000-000000000000 funcs=0 vars=5
+  wErrorCode : ushort
+  ucEntryStatus : byte[64]
+  wAutoCommCycle : ushort
+  ucAutoResponseStatus : byte[64]
+  ucRx : byte[8]
+
+TKIND_RECORD _ST_SLPRADIOMONDATA 00000000-0000-0000-0000-000000000000 funcs=0 vars=12
+  wEntryStatus : ushort
+  wReceivedPower : ushort
+  wForwardStationID : ushort
+  wErrorCode : ushort
+  wInputWord : ushort[64]
+  wOutputWord : ushort[64]
+  wAutoResponseStatus : ushort
+  wResponseTime : ushort
+  wResponseTimeMin : ushort
+  wResponseTimeMax : ushort
+  wInputWordSize : ushort
+  wOutputWordSize : ushort
+
+TKIND_RECORD _ST_GXW3_ASLINKMONDATALIST_BASE 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  lInfoCount : long
+  lpstAslinkMonData : _ST_GXW3_ASLINKMONDATA_BASE*
+
+TKIND_RECORD _ST_GXW3_ASLINKMONDATA_BASE 00000000-0000-0000-0000-000000000000 funcs=0 vars=54
+  wUnitID : ushort
+  wMtoSFuncParameter1 : ushort
+  wMtoSFuncParameter2 : ushort
+  wMtoSFuncParameter3 : ushort
+  wMtoSFuncParameter4 : ushort
+  wMtoSFuncParameter5 : ushort
+  wMtoSFuncParameter6 : ushort
+  wMtoSFuncParameter7 : ushort
+  wMtoSFuncParameter8 : ushort
+  wMtoSFuncParameter9 : ushort
+  wMtoSFuncParameter10 : ushort
+  wMtoSFuncParameter11 : ushort
+  wMtoSFuncParameter12 : ushort
+  wMtoSFuncParameter13 : ushort
+  wMtoSFuncParameter14 : ushort
+  wMtoSFuncParameter15 : ushort
+  wMtoSFuncParameter16 : ushort
+  wMtoSFuncParameter17 : ushort
+  wMtoSFuncParameter18 : ushort
+  wMtoSFuncParameter19 : ushort
+  wStoMFuncParameter1 : ushort
+  wStoMFuncParameter2 : ushort
+  wStoMFuncParameter3 : ushort
+  wStoMFuncParameter4 : ushort
+  wStoMFuncParameter5 : ushort
+  wStoMFuncParameter6 : ushort
+  wStoMFuncParameter7 : ushort
+  wStoMFuncParameter8 : ushort
+  wStoMFuncParameter9 : ushort
+  wStoMFuncParameter10 : ushort
+  wStoMFuncParameter11 : ushort
+  wStoMFuncParameter12 : ushort
+  wStoMFuncParameter13 : ushort
+  wStoMFuncParameter14 : ushort
+  wStoMFuncParameter15 : ushort
+  wStoMFuncParameter16 : ushort
+  wStoMFuncParameter17 : ushort
+  wStoMFuncParameter18 : ushort
+  wStoMFuncParameter19 : ushort
+  wStatus : ushort
+  wSensorLevel : ushort
+  wReserve1 : ushort
+  wReserve2 : ushort
+  wIOPattarn : ushort
+  wUnitNo : ushort
+  wFuncVer : ushort
+  wVenderCode : ushort
+  wLotNo : ushort
+  bErrorID : long
+  bArarmID : long
+  nNGID : int
+  wErrorCode : ushort
+  qwInputData : int64
+  qwOutputData : int64
+
+TKIND_RECORD _ST_GXW3_ASLINK_WRITE_PARAM 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  wWriteIndex : ushort
+  wWriteData : ushort
+
+TKIND_RECORD _ST_GXW3_CCLINKIEFSLAVEMONLIST_BASE 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  lInfoCount : long
+  lpstCclinkIEFMonData : _ST_GXW3_CCLINKIEFSLAVEMONDATA_BASE*
+
+TKIND_RECORD _ST_GXW3_CCLINKIEFSLAVEMONDATA_BASE 00000000-0000-0000-0000-000000000000 funcs=0 vars=9
+  wNo : ushort
+  lRXSize : long
+  lpwRX : ushort*
+  lRYSize : long
+  lpwRY : ushort*
+  lRWwSize : long
+  lpwRWw : ushort*
+  lRWrSize : long
+  lpwRWr : ushort*
+
+TKIND_RECORD _ST_GXW3_FILELIST_LFNDUMW 00000000-0000-0000-0000-000000000000 funcs=0 vars=9
+  wFileType : ushort
+  cFileName : ushort[13]
+  lpszFileName : ushort*
+  cAttribute : byte
+  cSecurity : byte
+  wLastTime : ushort
+  wLastDay : ushort
+  lFileSize : long
+  cTitleData : ushort[128]
+
+TKIND_RECORD _ST_GXW3_CCLINKSLAVEMONLIST_BASE2 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  lInfoCount : long
+  lpstCclinkMonData : _ST_GXW3_CCLINKSLAVEMONDATA_BASE2*
+
+TKIND_RECORD _ST_GXW3_CCLINKSLAVEMONDATA_BASE2 00000000-0000-0000-0000-000000000000 funcs=0 vars=9
+  wNo : ushort
+  lRXSize : long
+  wRX : ushort[56]
+  lRYSize : long
+  wRY : ushort[56]
+  lRWwSize : long
+  wRWw : ushort[128]
+  lRWrSize : long
+  wRWr : ushort[128]
+
+TKIND_RECORD _ST_GXW3_CCLINK_MOUNT_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=7
+  wMstMountSta : ushort
+  wWaitMstMountSta : ushort
+  cSlvMountSta : char[8]
+  ucRsv1 : byte[52]
+  stMasterInfo : _ST_GXW3_CCLINK_STA_MOUNT_INFO
+  stWaitMstInfo : _ST_GXW3_CCLINK_STA_MOUNT_INFO
+  stSlaveInfo : _ST_GXW3_CCLINK_STA_MOUNT_INFO[64]
+
+TKIND_RECORD _ST_GXW3_CCLINK_STA_MOUNT_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=17
+  dwMountSta : ulong
+  wMakerCode : ushort
+  ucRsv1 : byte[2]
+  wModelType : ushort
+  ucRsv2 : byte[2]
+  dwModelNameCode : ulong
+  ucRsv3 : byte[4]
+  wVersion : ushort
+  ucRsv4 : byte[2]
+  wStaInfo : ushort
+  ucRsv5 : byte[2]
+  wProtocolVer : ushort
+  ucRsv6 : byte[2]
+  wApparatusVer : ushort
+  ucRsv7 : byte[2]
+  wSubIDCount : ushort
+  ucRsv8 : byte[26]
+
+TKIND_RECORD _ST_GXW3_CCLINK_UNIT_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=6
+  bUnitType : long
+  bStandbyMstExp : long
+  wModeStatus : ushort
+  bAutoDetectionStatus : long
+  wParameterMode : ushort
+  wTransmissionSpeadStatus : ushort
+
+TKIND_RECORD _ST_GXW3_ETHER_STATUS_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  lStatusCount : long
+  lpstStatusData : _ST_GXW3_ETHER_STATUS_DATA*
+
+TKIND_RECORD _ST_GXW3_ETHER_STATUS_DATA 00000000-0000-0000-0000-000000000000 funcs=0 vars=6
+  byIPAdressSize : byte
+  byIPAdress : byte[16]
+  byExIPAdress : byte[16]
+  byStatus : byte
+  wErrCode : ushort
+  wCheckCode : ushort
+
+TKIND_RECORD _ST_UNIT_REFRESH_DEVICE 00000000-0000-0000-0000-000000000000 funcs=0 vars=3
+  wIONumber : ushort
+  wStationCount : ushort
+  lpstStationDevices : _ST_STATION_REFRESH_DEVICE*
+
+TKIND_RECORD _ST_STATION_REFRESH_DEVICE 00000000-0000-0000-0000-000000000000 funcs=0 vars=3
+  wStationNumber : ushort
+  wDeviceCount : ushort
+  lpstDevices : _ST_REFRESH_DEVICE_BASE*
+
+TKIND_RECORD _ST_REFRESH_DEVICE_BASE 00000000-0000-0000-0000-000000000000 funcs=0 vars=3
+  dwRefreshDeviceType : ulong
+  dwRefreshDeviceAddress : ulong
+  lpbstrDeviceString : BSTR*
+
+TKIND_RECORD _ST_CONFIG_DATA 00000000-0000-0000-0000-000000000000 funcs=0 vars=5
+  wIONumber : ushort
+  wNetworkNumber : ushort
+  dwConfigDataVersion : ulong
+  dwConfigDataArraySize : ulong
+  lpbyConfigDataArray : byte*
+
+TKIND_RECORD _ST_GXW3_NETREF_CCIE_NEXUS_CONFIG 00000000-0000-0000-0000-000000000000 funcs=0 vars=19
+  wStaNo : ushort
+  wRWwSendAdr : ushort
+  wRWwSendNum : ushort
+  wRWrRecvAdr : ushort
+  wRWrRecvNum : ushort
+  wRYSendAdr : ushort
+  wRYSendNum : ushort
+  wRXRecvAdr : ushort
+  wRXRecvNum : ushort
+  wLBAdr : ushort
+  wLBNum : ushort
+  wLWAdr : ushort
+  wLWNum : ushort
+  stRWwRefDevInfo : _ST_GXW3_DEVNAME
+  stRWrRefDevInfo : _ST_GXW3_DEVNAME
+  stRYRefDevInfo : _ST_GXW3_DEVNAME
+  stRXRefDevInfo : _ST_GXW3_DEVNAME
+  stLBRefDevInfo : _ST_GXW3_DEVNAME
+  stLWRefDevInfo : _ST_GXW3_DEVNAME
+
+TKIND_RECORD _STCCIEN_UNIT_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=3
+  wStationCount : ushort
+  lpstStationInfo : _STCCIEN_STATION_INFO_ALL*
+  lpstOptionArray : _ST_GX3_CCIE_NEXUS_EXT_UNIT_INFO*
+
+TKIND_RECORD _STCCIEN_STATION_INFO_ALL 00000000-0000-0000-0000-000000000000 funcs=0 vars=10
+  wStationNumber : ushort
+  wDeviceVersion : ushort
+  wVendorCode : ushort
+  dwDeviceModelCode : ulong
+  wStationType : ushort
+  lpcIpAddress : char[20]
+  wNetworkType : ushort
+  ucFunction : byte
+  wOptionArrayCount : ushort
+  lpstOptionArray : _ST_GX3_CCIE_NEXUS_EXT_UNIT_INFO*
+
+TKIND_RECORD _ST_GX3_CCIE_NEXUS_EXT_UNIT_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=4
+  wOptionIndex : ushort
+  wVersion : ushort
+  dwUnitTypeCode : ulong
+  wVendorCode : ushort
+
+TKIND_RECORD _ST_GX3_CCIE_NEXUS_SLAVE_UNIT_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=10
+  ucStationType : byte
+  wFWVersion : ushort
+  wHWVersion : ushort
+  dwDeviceModelCode : ulong
+  wVendorCode : ushort
+  lpcDeviceModelNameStr : char[21]
+  lpcVendorNameStr : char[33]
+  wVersion : ushort
+  wOptionArrayCount : ushort
+  lpstOptionArray : _ST_GX3_CCIE_NEXUS_SLAVE_EXT_UNIT_INFO*
+
+TKIND_RECORD _ST_GX3_CCIE_NEXUS_SLAVE_EXT_UNIT_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=6
+  wOptionIndex : ushort
+  wVersion : ushort
+  dwUnitTypeCode : ulong
+  wVendorCode : ushort
+  lpcDeviceModelNameStr : char[21]
+  lpcVendorNameStr : char[33]
+
+TKIND_RECORD _ST_GXW3_ASLINKMONDATALISTEXT_BASE 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  lInfoCount : long
+  lpstAslinkMonData : _ST_GXW3_ASLINKMONDATAEXT_BASE*
+
+TKIND_RECORD _ST_GXW3_ASLINKMONDATAEXT_BASE 00000000-0000-0000-0000-000000000000 funcs=0 vars=58
+  wUnitID : ushort
+  wMtoSFuncParameter1 : ushort
+  wMtoSFuncParameter2 : ushort
+  wMtoSFuncParameter3 : ushort
+  wMtoSFuncParameter4 : ushort
+  wMtoSFuncParameter5 : ushort
+  wMtoSFuncParameter6 : ushort
+  wMtoSFuncParameter7 : ushort
+  wMtoSFuncParameter8 : ushort
+  wMtoSFuncParameter9 : ushort
+  wMtoSFuncParameter10 : ushort
+  wMtoSFuncParameter11 : ushort
+  wMtoSFuncParameter12 : ushort
+  wMtoSFuncParameter13 : ushort
+  wMtoSFuncParameter14 : ushort
+  wMtoSFuncParameter15 : ushort
+  wMtoSFuncParameter16 : ushort
+  wMtoSFuncParameter17 : ushort
+  wMtoSFuncParameter18 : ushort
+  wMtoSFuncParameter19 : ushort
+  wStoMFuncParameter1 : ushort
+  wStoMFuncParameter2 : ushort
+  wStoMFuncParameter3 : ushort
+  wStoMFuncParameter4 : ushort
+  wStoMFuncParameter5 : ushort
+  wStoMFuncParameter6 : ushort
+  wStoMFuncParameter7 : ushort
+  wStoMFuncParameter8 : ushort
+  wStoMFuncParameter9 : ushort
+  wStoMFuncParameter10 : ushort
+  wStoMFuncParameter11 : ushort
+  wStoMFuncParameter12 : ushort
+  wStoMFuncParameter13 : ushort
+  wStoMFuncParameter14 : ushort
+  wStoMFuncParameter15 : ushort
+  wStoMFuncParameter16 : ushort
+  wStoMFuncParameter17 : ushort
+  wStoMFuncParameter18 : ushort
+  wStoMFuncParameter19 : ushort
+  wStatus : ushort
+  wSensorLevel : ushort
+  wReserve1 : ushort
+  wWordPattarn : ushort
+  wBitPattarn : ushort
+  wUnitNo : ushort
+  wFuncVer : ushort
+  wVenderCode : ushort
+  wLotNo : ushort
+  bErrorID : long
+  bArarmID : long
+  nNGID : int
+  wErrorCode : ushort
+  qwBitInputData : int64[2]
+  qwBitOutputData : int64[2]
+  wWordInputData : ushort[64]
+  wWordOutputData : ushort[64]
+  dwBitCycleTime : ulong
+  dwWordCycleTime : ulong
+
+TKIND_RECORD _STCCIEN_UNIT_INFO_EX 00000000-0000-0000-0000-000000000000 funcs=0 vars=3
+  wStationCount : ushort
+  lpstStationInfo : _STCCIEN_STATION_INFO_ALL_EX*
+  lpstOptionArray : _ST_GX3_CCIE_NEXUS_EXT_UNIT_INFO*
+
+TKIND_RECORD _STCCIEN_STATION_INFO_ALL_EX 00000000-0000-0000-0000-000000000000 funcs=0 vars=15
+  wStationNumber : ushort
+  wDeviceVersion : ushort
+  wVendorCode : ushort
+  dwDeviceModelCode : ulong
+  wStationType : ushort
+  lpcIpAddress : char[20]
+  wNetworkType : ushort
+  ucFunction : byte
+  wOptionArrayCount : ushort
+  wModeStatus : ushort
+  wExpansionModelCode : ushort
+  wDeviceType : ushort
+  dwConfigurationPriodNanoLiw : ulong
+  dwPriodNanoLiw : ulong
+  lpstOptionArray : _ST_GX3_CCIE_NEXUS_EXT_UNIT_INFO*
+
+TKIND_RECORD _STCCIEN_UNIT_INFO_EX2 00000000-0000-0000-0000-000000000000 funcs=0 vars=3
+  wStationCount : ushort
+  lpstStationInfo : _STCCIEN_STATION_INFO_ALL_EX2*
+  lpstOptionArray : _ST_GX3_CCIE_NEXUS_EXT_UNIT_INFO*
+
+TKIND_RECORD _STCCIEN_STATION_INFO_ALL_EX2 00000000-0000-0000-0000-000000000000 funcs=0 vars=16
+  wStationNumber : ushort
+  wDeviceVersion : ushort
+  wVendorCode : ushort
+  dwDeviceModelCode : ulong
+  wStationType : ushort
+  lpcIpAddress : char[20]
+  wNetworkType : ushort
+  ucFunction : byte
+  wOptionArrayCount : ushort
+  wModeStatus : ushort
+  wExpansionModelCode : ushort
+  wDeviceType : ushort
+  dwConfigurationPriodNanoLiw : ulong
+  dwPriodNanoLiw : ulong
+  wTopology : ushort
+  lpstOptionArray : _ST_GX3_CCIE_NEXUS_EXT_UNIT_INFO*
+
+TKIND_RECORD _ST_FWUP_DATA 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  wSlotNo : ushort
+  wcFwupFileName : ushort[257]
+
+TKIND_RECORD _ST_FWUP_STATUS 00000000-0000-0000-0000-000000000000 funcs=0 vars=4
+  wSlotNo : ushort
+  bstrUnitName : BSTR
+  bstrFWVersion : BSTR
+  lStatus : long
+
+TKIND_RECORD _ST_GXW3_TSNASLINKDATALIST_BASE 00000000-0000-0000-0000-000000000000 funcs=0 vars=6
+  lInfoCount : long
+  wBitDataPoints : ushort
+  wWordDataPoints : ushort
+  wWordDataStartAddress : ushort
+  wWordDataPerFrame : ushort
+  lpstAslinkData : _ST_GXW3_TSNASLINKDATA_BASE*
+
+TKIND_RECORD _ST_GXW3_TSNASLINKDATA_BASE 00000000-0000-0000-0000-000000000000 funcs=0 vars=8
+  wUnitID : ushort
+  wBitInputPoints : ushort
+  wBitOutputPoints : ushort
+  wWordInputPoints : ushort
+  wWordOutputPoints : ushort
+  wUnitNo : ushort
+  wFuncVer : ushort
+  wVenderCode : ushort
+
+TKIND_RECORD _STCCIEN_UNIT_INFO_EX3 00000000-0000-0000-0000-000000000000 funcs=0 vars=3
+  wStationCount : ushort
+  lpstStationInfo : _STCCIEN_STATION_INFO_ALL_EX3*
+  lpstOptionArray : _ST_GX3_CCIE_NEXUS_EXT_UNIT_INFO*
+
+TKIND_RECORD _STCCIEN_STATION_INFO_ALL_EX3 00000000-0000-0000-0000-000000000000 funcs=0 vars=16
+  wStationNumber : ushort
+  wDeviceVersion : ushort
+  wVendorCode : ushort
+  dwDeviceModelCode : ulong
+  wStationType : ushort
+  lpcIpAddress : char[20]
+  wNetworkType : ushort
+  ucFunction : byte
+  wOptionArrayCount : ushort
+  wModeStatus : ushort
+  wExpansionModelCode : ushort
+  wDeviceType : ushort
+  dwConfigurationPriodNanoLiw : ulong
+  dwPriodNanoLiw : ulong
+  wCertificationClass : ushort
+  lpstOptionArray : _ST_GX3_CCIE_NEXUS_EXT_UNIT_INFO*
+
+TKIND_RECORD _STCCIEN_UNIT_INFO_EX4 00000000-0000-0000-0000-000000000000 funcs=0 vars=3
+  wStationCount : ushort
+  lpstStationInfo : _STCCIEN_STATION_INFO_ALL_EX4*
+  lpstOptionArray : _ST_GX3_CCIE_NEXUS_EXT_UNIT_INFO*
+
+TKIND_RECORD _STCCIEN_STATION_INFO_ALL_EX4 00000000-0000-0000-0000-000000000000 funcs=0 vars=17
+  wStationNumber : ushort
+  wDeviceVersion : ushort
+  wVendorCode : ushort
+  dwDeviceModelCode : ulong
+  wStationType : ushort
+  lpcIpAddress : char[20]
+  wNetworkType : ushort
+  ucFunction : byte
+  wOptionArrayCount : ushort
+  wModeStatus : ushort
+  wExpansionModelCode : ushort
+  wDeviceType : ushort
+  dwConfigurationPriodNanoLiw : ulong
+  dwPriodNanoLiw : ulong
+  wTopology : ushort
+  wCertificationClass : ushort
+  lpstOptionArray : _ST_GX3_CCIE_NEXUS_EXT_UNIT_INFO*
+
+TKIND_RECORD _STCCIEN_UNIT_INFO_EX5 00000000-0000-0000-0000-000000000000 funcs=0 vars=3
+  wStationCount : ushort
+  lpstStationInfo : _STCCIEN_STATION_INFO_ALL_EX5*
+  lpstOptionArray : _ST_GX3_CCIE_NEXUS_EXT_UNIT_INFO*
+
+TKIND_RECORD _STCCIEN_STATION_INFO_ALL_EX5 00000000-0000-0000-0000-000000000000 funcs=0 vars=19
+  wStationNumber : ushort
+  wDeviceVersion : ushort
+  wVendorCode : ushort
+  dwDeviceModelCode : ulong
+  wStationType : ushort
+  lpcIpAddress : char[20]
+  wNetworkType : ushort
+  ucFunction : byte
+  wOptionArrayCount : ushort
+  wModeStatus : ushort
+  wExpansionModelCode : ushort
+  wDeviceType : ushort
+  dwConfigurationPriodNanoLiw : ulong
+  dwPriodNanoLiw : ulong
+  wTopology : ushort
+  wCertificationClass : ushort
+  lpucMacAddress : byte[6]
+  ucOption : byte
+  lpstOptionArray : _ST_GX3_CCIE_NEXUS_EXT_UNIT_INFO*
+
+TKIND_RECORD _ST_GXW3_CCIENEXUS_SET_IPADD_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=14
+  byClientMACAdress : byte[6]
+  byClientIPAdressSize : byte
+  byClientIPAdress : byte[16]
+  byMACAdress : byte[6]
+  byIPAdressSize : byte
+  byIPAdress : byte[16]
+  bySubNet : byte[16]
+  byGateWayIP : byte[16]
+  byHostNameSize : byte
+  lpcHostName : char[65]
+  byExIPAdressSize : byte
+  byExIPAdress : byte[16]
+  wExPortNo : ushort
+  byProtocol : byte
+
+TKIND_RECORD _ST_M2G_MOUNT_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=9
+  bstrSystemName : BSTR
+  lChainBaseCnt : long
+  lAllSlot : long
+  lAllUnit : long
+  lErrorUnit : long
+  bCpuVer : long
+  bMultiCpu : long
+  lMultiCpuConct : long
+  stBaseDetailArray : _ST_M2G_BASE_DETAIL[8]
+
+TKIND_RECORD _ST_M2G_BASE_DETAIL 00000000-0000-0000-0000-000000000000 funcs=0 vars=17
+  bstrBaseName : BSTR
+  bBaseEquip : long
+  lBaseType : long
+  lBaseSlot : long
+  lBaseErr : long
+  lBaseStartUnit : long
+  lBaseEndUnit : long
+  lBaseUnit : long
+  lBaseErrorUnit : long
+  lCpuCnt : long
+  lActualBaseSlot : long
+  wUnitCode : ushort
+  wBaseSeries6 : ushort
+  stPowerInfo : _ST_M2G_POWERINFO
+  stPower2Info : _ST_M2G_POWERINFO
+  stCpuSlotDetail : _ST_M2G_CPUSLOTDETAIL
+  stIoSlotDetailArray : _ST_M2G_IOSLOTDETAIL[15]
+
+TKIND_RECORD _ST_M2G_POWERINFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=12
+  bstrPowerName : BSTR
+  wUnitCode : ushort
+  wExUnitCode : ushort
+  bPower : long
+  bstrManufactureInfo : BSTR
+  wUnitSeries : ushort
+  bPowerOnOff : long
+  bPowerError : long
+  dwPowerOffCnt : ulong
+  bPowerDisp : long
+  bPowerStop : long
+  wUnitErr : ushort
+
+TKIND_RECORD _ST_M2G_CPUSLOTDETAIL 00000000-0000-0000-0000-000000000000 funcs=0 vars=21
+  bstrUnitName : BSTR
+  lIONo : long
+  bstrCpuFuncVer : BSTR
+  bstrSerialNo : BSTR
+  bUnitEquip : long
+  bAllocateErr : long
+  wUnitSeries : ushort
+  wUnitErr : ushort
+  wUnitErrCode : ushort
+  lPoint : long
+  wUnitCode : ushort
+  wExUnitCode : ushort
+  bstrFWVersion : BSTR
+  bSynchronizationFlg : long
+  wSynchronization : ushort
+  lExSramListCount : long
+  stExSramList : _ST_M2G_SYSMON_EXRAM[1]
+  lIpAddressListCount : long
+  stIpAddressList : _ST_M2G_SYSMON_IPADDRESS[5]
+  lIeGatewayListCount : long
+  stIeGatewayList : _ST_M2G_SYSMON_IEGATEWAY[5]
+
+TKIND_RECORD _ST_M2G_SYSMON_EXRAM 00000000-0000-0000-0000-000000000000 funcs=0 vars=4
+  bValid : long
+  bstrFWVersion : BSTR
+  bstrManufactureInfo : BSTR
+  bstrUnitName : BSTR
+
+TKIND_RECORD _ST_M2G_SYSMON_IPADDRESS 00000000-0000-0000-0000-000000000000 funcs=0 vars=4
+  bIPv4 : long
+  bIPv6 : long
+  ucIPv4 : byte[4]
+  wIPv6 : ushort[8]
+
+TKIND_RECORD _ST_M2G_SYSMON_IEGATEWAY 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  wNetworkNo : ushort
+  wStationNo : ushort
+
+TKIND_RECORD _ST_M2G_IOSLOTDETAIL 00000000-0000-0000-0000-000000000000 funcs=0 vars=24
+  lManagementCpu : long
+  bstrUnitName : BSTR
+  lIONo : long
+  bstrCpuFuncVer : BSTR
+  bstrSerialNo : BSTR
+  bUnitEquip : long
+  bAllocateErr : long
+  wUnitTypeAct : ushort
+  wUnitSeries : ushort
+  wUnitErr : ushort
+  wUnitErrCode : ushort
+  lPoint : long
+  lPointEquip : long
+  bSynchronizationFlg : long
+  wSynchronization : ushort
+  bstrFWVersion : BSTR
+  wUnitCode : ushort
+  wExUnitCode : ushort
+  lExSramListCount : long
+  stExSramList : _ST_M2G_SYSMON_EXRAM[1]
+  lIpAddressListCount : long
+  stIpAddressList : _ST_M2G_SYSMON_IPADDRESS[5]
+  lIeGatewayListCount : long
+  stIeGatewayList : _ST_M2G_SYSMON_IEGATEWAY[5]
+
+TKIND_RECORD _ST_GXW3_ASLINKV2MONDATALIST_BASE 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  lInfoCount : long
+  lpstAslinkMonData : _ST_GXW3_ASLINKV2MONDATA_BASE*
+
+TKIND_RECORD _ST_GXW3_ASLINKV2MONDATA_BASE 00000000-0000-0000-0000-000000000000 funcs=0 vars=57
+  wUnitID : ushort
+  wFuncParameter1 : ushort
+  wFuncParameter2 : ushort
+  wFuncParameter3 : ushort
+  wFuncParameter4 : ushort
+  wFuncParameter5 : ushort
+  wFuncParameter6 : ushort
+  wFuncParameter7 : ushort
+  wFuncParameter8 : ushort
+  wFuncParameter9 : ushort
+  wFuncParameter10 : ushort
+  wFuncParameter11 : ushort
+  wFuncParameter12 : ushort
+  wFuncParameter13 : ushort
+  wFuncParameter14 : ushort
+  wFuncParameter15 : ushort
+  wFuncParameter16 : ushort
+  wFuncParameter17 : ushort
+  wFuncParameter18 : ushort
+  wFuncParameter19 : ushort
+  wFuncParameter20 : ushort
+  wFuncParameter21 : ushort
+  wFuncParameter22 : ushort
+  wFuncParameter23 : ushort
+  wFuncParameter24 : ushort
+  wFuncParameter25 : ushort
+  wFuncParameter26 : ushort
+  wFuncParameter27 : ushort
+  wFuncParameter28 : ushort
+  wFuncParameter29 : ushort
+  wFuncParameter30 : ushort
+  wReserve1 : ushort
+  wReserve2 : ushort
+  wReserve3 : ushort
+  wInternalID : ushort
+  wAdditionalPattern : ushort
+  wManufactureInfo1 : ushort
+  wManufactureInfo2 : ushort
+  wManufactureInfo3 : ushort
+  wStatus : ushort
+  wSensorLevel1 : ushort
+  wSensorLevel2 : ushort
+  wWordPattarn : ushort
+  wBitPattarn : ushort
+  wUnitNo : ushort
+  wFuncVerandBit : ushort
+  wVenderCode : ushort
+  wHWandSWVer : ushort
+  bErrorID : long
+  bAlarmID : long
+  wErrorCode : ushort
+  qwBitInputData : int64
+  qwBitOutputData : int64
+  wWordInputData : ushort[64]
+  wWordOutputData : ushort[64]
+  dwBitCycleTime : ulong
+  dwWordCycleTime : ulong
+
+TKIND_RECORD _ST_GXW3_ASLINKV2_WRITE_PARAM 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  wWriteIndex : ushort
+  wWriteData : ushort
+
+TKIND_DISPATCH _IGXW3CallProductEvents 08c6ebb1-6114-45ba-ba01-5018479f6552 funcs=0 vars=0
+
+TKIND_COCLASS GXW3CallProduct 8da501e2-a5c2-48f5-9e18-b396fe88c5dc funcs=0 vars=0
+
+TKIND_DISPATCH IGXW3CallProduct 7ad9a457-0428-4b0d-9bb0-7dd3267821f6 funcs=21 vars=0
+  FUNC void QueryInterface([in] GUID* riid, [out] void** ppvObj)
+  FUNC ulong AddRef()
+  FUNC ulong Release()
+  FUNC void GetTypeInfoCount([out] uint* pctinfo)
+  FUNC void GetTypeInfo([in] uint itinfo, [in] ulong lcid, [out] void** pptinfo)
+  FUNC void GetIDsOfNames([in] GUID* riid, [in] char** rgszNames, [in] uint cNames, [in] ulong lcid, [out] long* rgdispid)
+  FUNC void Invoke([in] long dispidMember, [in] GUID* riid, [in] ulong lcid, [in] ushort wFlags, [in] DISPPARAMS* pdispparams, [out] VARIANT* pvarResult, [out] EXCEPINFO* pexcepinfo, [out] uint* puArgErr)
+  FUNC void Initialize([in] IUnknown* lpCommandSender)
+  FUNC void GetODeviceKind([in] _ST_GXW3_DEVNAME* lpstDeviceName, [out] short* lpsKind, [out] long* lplReturnCode)
+  FUNC void GetPlcSeriesList([in] byte[32] lpbCallID, [in] ushort wTimeOut, [out] ulong* lpdwPlcSeriesSize, [out] ST_PRODUCT_INFO** lpstPlcSeriesArray, [out] long* lplReturnCode)
+  FUNC void GetPlcTypeList([in] byte[32] lpbCallID, [in] ulong dwPlcSeries, [in] ushort wTimeOut, [out] ulong* lpdwPlcTypeSize, [out] ST_PRODUCT_INFO** lpstPlcTypeArray, [out] long* lplReturnCode)
+  FUNC void GetLanguageTypeList([in] byte[32] lpbCallID, [in] ulong dwPlcType, [in] ushort wTimeOut, [out] ulong* lpdwLanguageTypeSize, [out] ST_PRODUCT_INFO** lpstLanguageTypeArray, [out] long* lplReturnCode)
+  FUNC void GetCulture([in] byte[32] lpbCallID, [in] ushort wTimeOut, [out] BSTR* lpbstrCultureName, [out] long* lplReturnCode)
+  FUNC void SetCulture([in] byte[32] lpbCallID, [in] ushort wTimeOut, [in] BSTR bstrCultureName, [out] long* lplReturnCode)
+  FUNC void InitializeEX([in] IUnknown* lpCommandSender, [in] BSTR bstrCultureName)
+  FUNC void GetOpenIFVersion([out] long* lplVersion)
+  FUNC void DispHelpID([in] byte[32] lpbCallID, [in] ushort wTimeOut, [in] BSTR bstrHelpID, [out] long* lplReturnCode)
+  FUNC void GetUnitDataList([in] byte[32] lpbCallID, [in] ushort wTimeOut, [out] ulong* lpdwUnitSize, [out] _ST_UNIT_DATA** lpstUnitDataList, [out] long* lplReturnCode)
+  FUNC void GetOperationModeList([in] byte[32] lpbCallID, [in] ulong dwPlcType, [in] ushort wTimeOut, [out] ulong* lpdwOperationModeSize, [out] ST_PRODUCT_INFO** lpstOperationModeList, [out] long* lplReturnCode)
+  FUNC void GetOperationModeListExt([in] byte[32] lpbCallID, [in] ulong dwPlcType, [in] ushort wTimeOut, [out] ulong* lpdwOperationModeSize, [out] ST_PRODUCT_INFO_EX** lpstOperationModeList, [out] long* lplReturnCode)
+  FUNC void GetUnitDataListAll([in] byte[32] lpbCallID, [in] ushort wTimeOut, [out] ulong* lpdwUnitSize, [out] _ST_UNIT_DATA** lpstUnitDataList, [out] long* lplReturnCode)
+
+TKIND_RECORD ST_PRODUCT_INFO 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  dwID : ulong
+  wcNameStr : ushort[22]
+
+TKIND_RECORD _ST_UNIT_DATA 00000000-0000-0000-0000-000000000000 funcs=0 vars=8
+  wSeries : ushort
+  wUnitCode : ushort
+  wExUnitCode : ushort
+  wOccupationSlotCount : ushort
+  wUnitKind : ushort
+  wUnitDetailKind : ushort
+  wIO : ushort
+  wcNameStr : ushort[100]
+
+TKIND_RECORD ST_PRODUCT_INFO_EX 00000000-0000-0000-0000-000000000000 funcs=0 vars=2
+  dwID : ulong
+  wcNameStr : ushort[129]
+
+TKIND_DISPATCH _IGXW3CallTransmitterEvents 2b58bb93-2710-4fbb-b2cb-92968a0f0f38 funcs=0 vars=0
+
+TKIND_COCLASS GXW3CallTransmitter 538f4ca5-cc9d-4e21-aa5e-ae293cdeaf9a funcs=0 vars=0
+
+TKIND_DISPATCH IGXW3CallTransmitter 30ad5d25-deae-48e2-8959-d0a25e54170d funcs=8 vars=0
+  FUNC void QueryInterface([in] GUID* riid, [out] void** ppvObj)
+  FUNC ulong AddRef()
+  FUNC ulong Release()
+  FUNC void GetTypeInfoCount([out] uint* pctinfo)
+  FUNC void GetTypeInfo([in] uint itinfo, [in] ulong lcid, [out] void** pptinfo)
+  FUNC void GetIDsOfNames([in] GUID* riid, [in] char** rgszNames, [in] uint cNames, [in] ulong lcid, [out] long* rgdispid)
+  FUNC void Invoke([in] long dispidMember, [in] GUID* riid, [in] ulong lcid, [in] ushort wFlags, [in] DISPPARAMS* pdispparams, [out] VARIANT* pvarResult, [out] EXCEPINFO* pexcepinfo, [out] uint* puArgErr)
+  FUNC void BroadcastSendData([in] ULONG_PTR ulCommandID, [in] ulong dwSize, [in] byte* lpData)
+
+TKIND_ALIAS ULONG_PTR 00000000-0000-0000-0000-000000000000 funcs=0 vars=0
+
+TKIND_DISPATCH IGXW3CallTransmitterEvent 8d6c1c04-cda2-47c9-9f4f-558e797d24dc funcs=8 vars=0
+  FUNC void QueryInterface([in] GUID* riid, [out] void** ppvObj)
+  FUNC ulong AddRef()
+  FUNC ulong Release()
+  FUNC void GetTypeInfoCount([out] uint* pctinfo)
+  FUNC void GetTypeInfo([in] uint itinfo, [in] ulong lcid, [out] void** pptinfo)
+  FUNC void GetIDsOfNames([in] GUID* riid, [in] char** rgszNames, [in] uint cNames, [in] ulong lcid, [out] long* rgdispid)
+  FUNC void Invoke([in] long dispidMember, [in] GUID* riid, [in] ulong lcid, [in] ushort wFlags, [in] DISPPARAMS* pdispparams, [out] VARIANT* pvarResult, [out] EXCEPINFO* pexcepinfo, [out] uint* puArgErr)
+  FUNC void SendData([in] ULONG_PTR ulCommandID, [in] ulong dwSize, [in] byte* lpData)
+
+TKIND_DISPATCH _IGXW3CallSessionEvents f7c3386c-7cc6-4148-a443-7ff1a1c26700 funcs=0 vars=0
+
+TKIND_COCLASS GXW3CallSession 6896a2ff-5f4e-4540-a167-00e220c5a521 funcs=0 vars=0
+
+TKIND_DISPATCH IGXW3CallSession 7ecae380-ec16-4562-a71b-3046455b5a7c funcs=16 vars=0
+  FUNC void QueryInterface([in] GUID* riid, [out] void** ppvObj)
+  FUNC ulong AddRef()
+  FUNC ulong Release()
+  FUNC void GetTypeInfoCount([out] uint* pctinfo)
+  FUNC void GetTypeInfo([in] uint itinfo, [in] ulong lcid, [out] void** pptinfo)
+  FUNC void GetIDsOfNames([in] GUID* riid, [in] char** rgszNames, [in] uint cNames, [in] ulong lcid, [out] long* rgdispid)
+  FUNC void Invoke([in] long dispidMember, [in] GUID* riid, [in] ulong lcid, [in] ushort wFlags, [in] DISPPARAMS* pdispparams, [out] VARIANT* pvarResult, [out] EXCEPINFO* pexcepinfo, [out] uint* puArgErr)
+  FUNC void Initialize([in] IUnknown* lpCommandSender)
+  FUNC void CheckSupport([in] ulong dwApiId)
+  FUNC void ProjectOpen([in] BSTR bstrProjectPath, [in] ushort wTimeOut, [in] long lUserInterfaceMode, [out] byte[32] lpbCallID, [out] long* pbIsReadOnly, [out] long* lplReturnCode)
+  FUNC void ProjectClose([in] byte[32] lpbCallID, [in] long lOption, [out] long* lplReturnCode)
+  FUNC void IsSimulation([in] byte[32] lpbCallID, [out] ulong* lpdwStatus, [out] long* lplReturnCode)
+  FUNC void Connect([in] ushort wTimeOut, [out] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void Disconnect([in] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void InitializeEX([in] IUnknown* lpCommandSender, [in] BSTR bstrCultureName)
+  FUNC void Preload([out] byte[32] lpbCallID, [out] long* lplReturnCode)
+
+TKIND_DISPATCH _IGXW3CallViewEvents 1bd4c909-99f8-4edb-a618-2143b5810e80 funcs=0 vars=0
+
+TKIND_COCLASS GXW3CallView 9b637eca-ad0c-44a8-a8dc-8d84aa631894 funcs=0 vars=0
+
+TKIND_DISPATCH IGXW3CallView 8bc7e5ad-7b5d-443d-8bd7-08a098327080 funcs=33 vars=0
+  FUNC void QueryInterface([in] GUID* riid, [out] void** ppvObj)
+  FUNC ulong AddRef()
+  FUNC ulong Release()
+  FUNC void GetTypeInfoCount([out] uint* pctinfo)
+  FUNC void GetTypeInfo([in] uint itinfo, [in] ulong lcid, [out] void** pptinfo)
+  FUNC void GetIDsOfNames([in] GUID* riid, [in] char** rgszNames, [in] uint cNames, [in] ulong lcid, [out] long* rgdispid)
+  FUNC void Invoke([in] long dispidMember, [in] GUID* riid, [in] ulong lcid, [in] ushort wFlags, [in] DISPPARAMS* pdispparams, [out] VARIANT* pvarResult, [out] EXCEPINFO* pexcepinfo, [out] uint* puArgErr)
+  FUNC void Initialize([in] IUnknown* lpCommandSender)
+  FUNC void InitializeEX([in] IUnknown* lpCommandSender, [in] BSTR bstrCultureName)
+  FUNC void CreateNewProjectWithPasswordDialog([in] BSTR bstrProjectPath, [in] BSTR bstrDlgTitle, [in] BSTR bstrTitle, [in] long lSaveType, [in] ulong dwPlcSeries, [in] ulong dwPlcType, [in] ulong dwLanguageType, [in] ushort wTimeOut, [in] long lUserInterfaceMode, [out] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void OpenProjectWithPasswordDialog([in] BSTR bstrProjectPath, [in] BSTR bstrDlgTitle, [in] ushort wTimeOut, [in] long lUserInterfaceMode, [out] byte[32] lpbCallID, [inout] long* pbIsReadOnly, [out] long* lplReturnCode)
+  FUNC void RenameProjectWithPasswordDialog([in] BSTR bstrProjectPath, [in] BSTR bstrDlgTitle, [in] BSTR bstrNewProjectName, [in] ushort wTimeOut, [out] long* lplReturnCode)
+  FUNC void OpenConnectionSettingDialog([in] byte[32] lpbCallID, [in] long lDialogKind, [in] long lRouteCount, [in] long* plPcSideIF, [out] ushort* lpwChangeResult, [out] long* lplReturnCode)
+  FUNC void OpenNewConnectionSettingDialog([in] byte[32] lpbCallID, [in] ulong dwPlcSeries, [in] ulong dwPlcType, [in] long lDialogKind, [in] long lRouteCount, [in] long* plPcSideIF, [out] ushort* lpwChangeResult, [out] long* lplReturnCode)
+  FUNC void ShowPOUBody([in] byte[32] lpbCallID, [in] BSTR bstrPOUName, [in] BSTR bstrFBInstanceName, [in] BSTR bstrTargetLocation, [out] long* lplReturnCode)
+  FUNC void ShowPOULabelList([in] byte[32] lpbCallID, [in] BSTR bstrPOUName, [in] BSTR bstrLabelName, [out] long* lplReturnCode)
+  FUNC void ShowSFCActionBody([in] byte[32] lpbCallID, [in] BSTR bstrPOUName, [in] BSTR bstrActionName, [in] BSTR bstrTargetLocation, [out] long* lplReturnCode)
+  FUNC void ShowSFCTransitionBody([in] byte[32] lpbCallID, [in] BSTR bstrPOUName, [in] BSTR bstrTransitionName, [in] BSTR bstrTargetLocation, [out] long* lplReturnCode)
+  FUNC void ShowGlobalLabelList([in] byte[32] lpbCallID, [in] BSTR bstrLabelListName, [in] BSTR bstrLabelName, [out] long* lplReturnCode)
+  FUNC void ShowSDT([in] byte[32] lpbCallID, [in] BSTR bstrSDTName, [in] BSTR bstrMemberName, [out] long* lplReturnCode)
+  FUNC void ShowProjectExt([in] byte[32] lpbCallID, [in] long lShow, [out] long* lplReturnCode)
+  FUNC void CreateNewProjectWithPasswordDialogExt([in] BSTR bstrProjectPath, [in] BSTR bstrDlgTitle, [in] BSTR bstrTitle, [in] long lSaveType, [in] ulong dwPlcSeries, [in] ulong dwPlcType, [in] ulong dwLanguageType, [in] ushort wTimeOut, [in] long lUserInterfaceMode, [in] ulong dwOperationMode, [out] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void ShowVerifyProjectDialog([in] byte[32] lpbCallID, [in] BSTR bstrProjectPath, [out] long* lplReturnCode)
+  FUNC void ShowCPUParameter([in] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void ShowDiagnosticsDialog([in] byte[32] lpbCallID, [in] long lDiagnosticsDialog, [out] long* lplReturnCode)
+  FUNC void RegisterLibrary([in] byte[32] lpbCallID, [in] BSTR bstrFilePath, [out] long* lplReturnCode)
+  FUNC void UpdateLibrary([in] byte[32] lpbCallID, [in] BSTR bstrFilePath, [out] long* lplReturnCode)
+  FUNC void DeleteLibrary([in] byte[32] lpbCallID, [in] BSTR bstrFilePath, [out] long* lplReturnCode)
+  FUNC void ShowPOUBodyExt([in] byte[32] lpbCallID, [in] BSTR bstrPOUName, [in] BSTR bstrWorksheetName, [in] BSTR bstrFBInstanceName, [in] BSTR bstrTargetLocation, [out] long* lplReturnCode)
+  FUNC void StartSimulator([in] byte[32] lpbCallID, [in] long lStartUpMode, [out] long* lplReturnCode)
+  FUNC void StopSimulator([in] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void CreateNewProjectForTypeModelWithPasswordDialog([in] BSTR bstrProjectPath, [in] BSTR bstrDlgTitle, [in] BSTR bstrTitle, [in] long lSaveType, [in] ulong dwPlcSeries, [in] ulong dwPlcTypeModel, [in] ulong dwPlcAxisNum, [in] ulong dwNetworkType, [in] ulong dwLanguageType, [in] ushort wTimeOut, [in] long lOpenInterfaceMode, [in] ulong dwMode, [out] byte[32] lpbCallID, [out] long* lplReturnCode)
+  FUNC void OpenNewConnectionSettingDialogForTypeModel([in] byte[32] lpbCallID, [in] ulong dwPlcSeries, [in] ulong dwPlcTypeModel, [in] ulong dwPlcAxisNum, [in] long lDialogKind, [in] long lRouteCount, [out] long* plPcSideIF, [out] ushort* lpwChangeResult, [out] long* lplReturnCode)
+

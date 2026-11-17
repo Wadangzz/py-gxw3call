@@ -1,0 +1,7 @@
+__pycache__/
+*.gx3
+*.log
+.venv/
+.vscode/
+dist/
+.env

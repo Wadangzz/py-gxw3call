@@ -1,0 +1,821 @@
+{
+ "IGXW3CallProject.GetPlcTypeString": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpszPlcTypeString": null
+  }
+ },
+ "IGXW3CallProject.IsProjectOpened": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lplOpenCount": null
+  }
+ },
+ "IGXW3CallProject.GetProjectStatus": {
+  "hr": 1,
+  "rc": 4097,
+  "out": {
+   "lpdwStatus": null
+  }
+ },
+ "IGXW3CallProject.GetPlcType": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpdwPlcType": null,
+   "lpdwPlcSeries": null
+  }
+ },
+ "IGXW3CallProject.GetDefaultConnection": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpstConnectionInfo": null,
+   "lpbstrConnectionName": null
+  }
+ },
+ "IGXW3CallProject.GetEZSocketOpenParam": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpstComOpen": null
+  }
+ },
+ "IGXW3CallProject.IsProjectModified": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpbIsModified": null
+  }
+ },
+ "IGXW3CallProject.IsProjectCompiled": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpbIsCompiled": null
+  }
+ },
+ "IGXW3CallProject.GetSystemHardwareConfiguration": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpSystem": null
+  }
+ },
+ "IGXW3CallProject.GetOperationMode": {
+  "hr": 1,
+  "rc": 4097,
+  "out": {
+   "lpdwOperationMode": null
+  }
+ },
+ "IGXW3CallProject.GetConnectionList": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpdwSize": null,
+   "lpstConnectionList": null
+  }
+ },
+ "IGXW3CallProject.GetTempraryFolder": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpszTemporaryFolder": null
+  }
+ },
+ "IGXW3CallProject.GetSystemHardwareConfigurationFXV": {
+  "hr": 1,
+  "rc": 4108,
+  "out": {
+   "lpSystem": null
+  }
+ },
+ "IGXW3CallProject.GetEZSocketOpenParamExt": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpstComOpen": null
+  }
+ },
+ "IGXW3CallProject.GetGlobalLabelListNames": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpdwSize": null,
+   "lppstNames": null
+  }
+ },
+ "IGXW3CallProject.GetSDTNames": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpdwSize": null,
+   "lppstNames": null
+  }
+ },
+ "IGXW3CallProject.GetPOUNames": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpdwSize": null,
+   "lppstNames": null
+  }
+ },
+ "IGXW3CallProject.GetLabels": {
+  "hr": 1,
+  "rc": 4097,
+  "out": {
+   "lpdwSize": null,
+   "lpppstLabels": null
+  }
+ },
+ "IGXW3CallProject.GetLabelAssignment": {
+  "hr": 1,
+  "rc": 4097,
+  "out": {
+   "lpbstrLabelAssignment": null,
+   "lpbstrLabelClass": null,
+   "lpbstrLabelDataType": null
+  }
+ },
+ "IGXW3CallProject.GetMemCardFilePasswordTargetList": {
+  "hr": 1,
+  "rc": 4097,
+  "out": {
+   "lpdwFilePasswordSize": null,
+   "lpstFilePasswordList": null
+  }
+ },
+ "IGXW3CallProject.GetUpdateTimeList": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpdwUpdateSize": null,
+   "lpstUpdateList": null
+  }
+ },
+ "IGXW3CallProject.GetProgramNo": {
+  "hr": 1,
+  "rc": 6402,
+  "out": {
+   "lpwProgramNo": null
+  }
+ },
+ "IGXW3CallProject.GetPOUsLockedByBlockPassword": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpdwSize": null,
+   "lppstNames": null
+  }
+ },
+ "IGXW3CallProject.GetFileListForDownload": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpdwFileListSize": null,
+   "lpstFileList": null
+  }
+ },
+ "IGXW3CallProject.GetExecutingFunctions": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "ldwExecutingFunctions": null
+  }
+ },
+ "IGXW3CallProject.GetLabelAssignmentExt": {
+  "hr": 1,
+  "rc": 4097,
+  "out": {
+   "lpdwLabelDataCount": null,
+   "lpdwLabelDataListSize": null,
+   "lpstLabelDataList": null
+  }
+ },
+ "IGXW3CallProject.GetLabelDeviceComment": {
+  "hr": 1,
+  "rc": 4097,
+  "out": {
+   "lpbstrComment": null
+  }
+ },
+ "IGXW3CallProject.GetSimulatorNo": {
+  "hr": 1,
+  "rc": 4128,
+  "out": {
+   "lpwSystemID": null,
+   "lpwCPUID": null,
+   "lpwSimulatorType": null
+  }
+ },
+ "IGXW3CallProject.GetProjectStatusExt": {
+  "hr": 1,
+  "rc": 4097,
+  "out": {
+   "lpdwStatus": null
+  }
+ },
+ "IGXW3CallProject.GetOperationModeExt": {
+  "hr": 1,
+  "rc": 4097,
+  "out": {
+   "lpdwOperationMode": null
+  }
+ },
+ "IGXW3CallProject.GetProjectSecurityVersion": {
+  "hr": 1,
+  "rc": 4097,
+  "out": {
+   "lpdwSecurityVersion": null
+  }
+ },
+ "IGXW3CallProject.GetEZSocketOpenParamExt2": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpstComOpen": null
+  }
+ },
+ "IGXW3CallProject.GetLabelCategory": {
+  "hr": 1,
+  "rc": 4097,
+  "out": {
+   "lpdwLabelCategory": null
+  }
+ },
+ "IGXW3CallCommunication.GetPlcRunStatus": {
+  "hr": 1,
+  "rc": 738430977,
+  "out": {
+   "lpwPlcStatusResult": null
+  }
+ },
+ "IGXW3CallCommunication.GetStationType": {
+  "hr": 1,
+  "rc": 4294967096,
+  "out": {
+   "lpwStationType": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCLinkIEFieldRefreshParam": {
+  "hr": 1,
+  "rc": 757006374,
+  "out": {
+   "lpdwRefreshDeviceParamSize": null,
+   "lpstRefreshDeviceParamAry": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCLinkIEFieldRefreshDeviceSetting": {
+  "hr": 1,
+  "rc": 757006374,
+  "out": {
+   "lpdwRefreshDeviceSettingSize": null,
+   "lpstRefreshDeviceSettingAry": null
+  }
+ },
+ "IGXW3CallCommunication.CheckSLMPCommandUse": {
+  "hr": 1,
+  "rc": 4294967096,
+  "out": {
+   "lpbIsPossibleToUseSLMP": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCLinkIEFieldConfig": {
+  "hr": 1,
+  "rc": 4294967096,
+  "out": {
+   "lpdwConfigDataArraySize": null,
+   "lpbyConfigDataArray": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCLinkRefreshDevice": {
+  "hr": 1,
+  "rc": 757006342,
+  "out": {
+   "lpdwDeviceInfoSize": null,
+   "lpstDeviceInfoArray": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCLinkMode": {
+  "hr": 1,
+  "rc": 4294967096,
+  "out": {
+   "lpwMode": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCLinkConfig": {
+  "hr": 1,
+  "rc": 4294967096,
+  "out": {
+   "lpdwConfigDataArraySize": null,
+   "lpbyConfigDataArray": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCLinkRefreshParam": {
+  "hr": 1,
+  "rc": 757006362,
+  "out": {
+   "lpdwRefreshDeviceParamSize": null,
+   "lpstRefreshDeviceParamAry": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCLinkRefreshDeviceSetting": {
+  "hr": 1,
+  "rc": 757006362,
+  "out": {
+   "lpdwRefreshDeviceSettingSize": null,
+   "lpstRefreshDeviceSettingAry": null
+  }
+ },
+ "IGXW3CallCommunication.GetPlcFileList": {
+  "hr": 1,
+  "rc": 4097,
+  "out": {
+   "lpdwPlcFileSize": null,
+   "lpstPlcFileList": null
+  }
+ },
+ "IGXW3CallCommunication.GetFilePasswordTargetList": {
+  "hr": 1,
+  "rc": 4097,
+  "out": {
+   "lpdwFilePasswordSize": null,
+   "lpstFilePasswordList": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCIEFMountData": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpstCCIEFMountInfo": null,
+   "lpstCCIEFUnitInfo": null,
+   "lpdwEXError": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCIECMountData": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpstCCIECMountInfo": null,
+   "lpstCCIECUnitInfo": null,
+   "lpdwEXError": null
+  }
+ },
+ "IGXW3CallCommunication.GetIQRSeriesMountData": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpstIQRMountInfo": null,
+   "lpdwEXError": null
+  }
+ },
+ "IGXW3CallCommunication.GetStateAutoDetectEtherNode": {
+  "hr": 1,
+  "rc": 4102,
+  "out": {
+   "lpbStateFlg": null,
+   "lplNodeCount": null
+  }
+ },
+ "IGXW3CallCommunication.CheckSupportSLMPFunction": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lplSupport": null
+  }
+ },
+ "IGXW3CallCommunication.GetCommunicationSettingForEthernet": {
+  "hr": 1,
+  "rc": 4102,
+  "out": {
+   "lpwGetTarget": null,
+   "lpwPortNo": null,
+   "lpdwTimeout": null
+  }
+ },
+ "IGXW3CallCommunication.GetParameterForEthernet": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpstParameter": null
+  }
+ },
+ "IGXW3CallCommunication.GetIQFSeriesMountData": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpstIQFMountInfo": null,
+   "lpdwEXError": null
+  }
+ },
+ "IGXW3CallCommunication.GetPlcMode": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lplPlcMode": null
+  }
+ },
+ "IGXW3CallCommunication.IsPlcOnline": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpbIsOnline": null,
+   "lpbIsSimulation": null,
+   "lpbstrPlcType": null
+  }
+ },
+ "IGXW3CallCommunication.GetIQRSeriesMountDataExt": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpstIQRMountInfo": null,
+   "lpdwEXError": null
+  }
+ },
+ "IGXW3CallCommunication.CheckCCIEFieldSLPRadioBridgeUnitReady": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpbReady": null,
+   "lpwBridgeErrorCode": null
+  }
+ },
+ "IGXW3CallCommunication.CheckASLINKMasterReady": {
+  "hr": 1,
+  "rc": 757006349,
+  "out": {
+   "lpbReady": null,
+   "lpwMasterErrorCode": null
+  }
+ },
+ "IGXW3CallCommunication.GetErrorMessage": {
+  "hr": 1,
+  "rc": 4294966297,
+  "out": {
+   "lpszErrorMessage": null
+  }
+ },
+ "IGXW3CallCommunication.CheckSupportCCIEFBasicFunction": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lplSupport": null
+  }
+ },
+ "IGXW3CallCommunication.GetAllFileListForLFN": {
+  "error": "worker lost"
+ },
+ "IGXW3CallCommunication.CheckBackupRestoreForCCLinkIEF": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lplSupport": null
+  }
+ },
+ "IGXW3CallCommunication.CheckBackupRestoreForCCLink": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lplSupport": null
+  }
+ },
+ "IGXW3CallCommunication.CheckBackupRestoreForASLINK": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lplSupport": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCLinkMountDataFromBuffMem": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpstCCLinkMountInfo": null,
+   "lpstCCLinkUnitInfo": null,
+   "lpdwEXError": null
+  }
+ },
+ "IGXW3CallCommunication.CheckCCLinkASLINKBridgeUnitReady": {
+  "hr": 1,
+  "rc": 757006349,
+  "out": {
+   "lpbReady": null,
+   "lpwBridgeErrorCode": null
+  }
+ },
+ "IGXW3CallCommunication.GetWorkDevice99Supportflags": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpwSupport": null
+  }
+ },
+ "IGXW3CallCommunication.GetOutputMapFileNameForEthernet": {
+  "hr": 1,
+  "rc": 4294966297,
+  "out": {
+   "lpwFileSize": null
+  }
+ },
+ "IGXW3CallCommunication.GetOutPutAddressFileForEthernet": {
+  "hr": 1,
+  "rc": 4294966297,
+  "out": {
+   "lpdwReadDataSize": null,
+   "lpbyReadData": null
+  }
+ },
+ "IGXW3CallCommunication.GetStatusForEthernet": {
+  "hr": 1,
+  "rc": 4294966297,
+  "out": {
+   "lpstEtherStatusInfo": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCLinkIEFieldRefreshDeviceStringList": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpstDeviceList": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCLinkIEFieldConfigList": {
+  "hr": 1,
+  "rc": 757006348,
+  "out": {
+   "lpwUnitCount": null,
+   "lpstConfigDataList": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCIENexusRefreshParam": {
+  "hr": 1,
+  "rc": 757006400,
+  "out": {
+   "lpdwRefreshDeviceParamSize": null,
+   "lpstRefreshDeviceParamAry": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCIENexusRefreshDeviceSetting": {
+  "hr": 1,
+  "rc": 757006400,
+  "out": {
+   "lpdwRefreshDeviceSettingSize": null,
+   "lpstRefreshDeviceSettingAry": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCIENexusConfig": {
+  "hr": 1,
+  "rc": 4294967096,
+  "out": {
+   "lpdwConfigDataArraySize": null,
+   "lpbyConfigDataArray": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCIENexusMountData": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpstCCIENUnitInfo": null,
+   "lpdwEXError": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCIEFMountDataForNexus": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpstCCIEFMountInfo": null,
+   "lpstCCIEFUnitInfo": null,
+   "lpdwEXError": null
+  }
+ },
+ "IGXW3CallCommunication.CheckCCIEFieldASLINKBridgeUnitReady": {
+  "hr": 1,
+  "rc": 4294966297,
+  "out": {
+   "lpbReady": null,
+   "lpwBridgeErrorCode": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCIENexusMountDataEx": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpstCCIENUnitInfo": null,
+   "lpdwEXError": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCIENexusMountDataEx2": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpstCCIENUnitInfo": null,
+   "lpdwEXError": null
+  }
+ },
+ "IGXW3CallCommunication.GetTSNUnitVersion": {
+  "hr": 2147500037,
+  "rc": null,
+  "out": {
+   "lpwPort1Version": null,
+   "lpwPort2Version": null
+  }
+ },
+ "IGXW3CallCommunication.CheckCCIETSNASLINKBridgeUnitReady": {
+  "hr": 1,
+  "rc": 4294966297,
+  "out": {
+   "lpbReady": null,
+   "lpwBridgeAlarmCode": null,
+   "lpwBridgeErrorCode": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCIENexusMountDataEx3": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpstCCIENUnitInfo": null,
+   "lpdwEXError": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCIENexusMountDataEx4": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpstCCIENUnitInfo": null,
+   "lpdwEXError": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCIETSNSupportInfo": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lplSupportInfoCount": null,
+   "lppwSupportInfoArray": null
+  }
+ },
+ "IGXW3CallCommunication.GetErrorInfoList": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpdwDataSize": null,
+   "lpbyData": null
+  }
+ },
+ "IGXW3CallCommunication.GetEventHistoryList": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpdwDataSize": null,
+   "lpbyData": null
+  }
+ },
+ "IGXW3CallCommunication.GetUnitInfoListOnline": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpdwDataSize": null,
+   "lpbyData": null
+  }
+ },
+ "IGXW3CallCommunication.GetMountData": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpdwDataSize": null,
+   "lpbyData": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCIENexusMountDataEx5": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpstCCIENUnitInfo": null,
+   "lpdwEXError": null
+  }
+ },
+ "IGXW3CallCommunication.CheckSLMPCommandUseEX": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpbIsPossibleToUseSLMP": null
+  }
+ },
+ "IGXW3CallCommunication.GetCCIETSNFieldBridgeMountData": {
+  "hr": 1,
+  "rc": 4294966297,
+  "out": {
+   "lpstCCIEFMountInfo": null,
+   "lpstCCIEFUnitInfo": null,
+   "lpdwEXError": null
+  }
+ },
+ "IGXW3CallCommunication.GetM2GSeriesMountData": {
+  "hr": 1,
+  "rc": 25199874,
+  "out": {
+   "lpstM2GMountInfo": null,
+   "lpdwEXError": null
+  }
+ },
+ "IGXW3CallCommunication.CheckASLINKV2MasterReady": {
+  "hr": 1,
+  "rc": 757006349,
+  "out": {
+   "lpbReady": null,
+   "lpwMasterErrorCode": null
+  }
+ },
+ "IGXW3CallProduct.GetODeviceKind": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpsKind": null
+  }
+ },
+ "IGXW3CallProduct.GetPlcSeriesList": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpdwPlcSeriesSize": null,
+   "lpstPlcSeriesArray": null
+  }
+ },
+ "IGXW3CallProduct.GetPlcTypeList": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpdwPlcTypeSize": null,
+   "lpstPlcTypeArray": null
+  }
+ },
+ "IGXW3CallProduct.GetLanguageTypeList": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpdwLanguageTypeSize": null,
+   "lpstLanguageTypeArray": null
+  }
+ },
+ "IGXW3CallProduct.GetCulture": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpbstrCultureName": null
+  }
+ },
+ "IGXW3CallProduct.GetOpenIFVersion": {
+  "hr": 0,
+  "rc": null,
+  "out": {
+   "lplVersion": null
+  }
+ },
+ "IGXW3CallProduct.GetUnitDataList": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpdwUnitSize": null,
+   "lpstUnitDataList": null
+  }
+ },
+ "IGXW3CallProduct.GetOperationModeList": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpdwOperationModeSize": null,
+   "lpstOperationModeList": null
+  }
+ },
+ "IGXW3CallProduct.GetOperationModeListExt": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpdwOperationModeSize": null,
+   "lpstOperationModeList": null
+  }
+ },
+ "IGXW3CallProduct.GetUnitDataListAll": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpdwUnitSize": null,
+   "lpstUnitDataList": null
+  }
+ },
+ "IGXW3CallSession.CheckSupport": {
+  "hr": 1,
+  "rc": null,
+  "out": {}
+ },
+ "IGXW3CallSession.IsSimulation": {
+  "hr": 0,
+  "rc": 0,
+  "out": {
+   "lpdwStatus": null
+  }
+ }
+}
